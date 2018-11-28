@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% from "radios/macro.njk" import govukRadios %}
+{% block content %}
+
+<div class="main">
+
+{{ govukRadios({
+  idPrefix: "where-do-you-live",
+  name: "where-do-you-live",
+  fieldset: {
+    legend: {
+      text: "Where do you live?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "England"
+    },
+    {
+      value: "scotland",
+      text: "Scotland"
+    },
+    {
+      value: "wales",
+      text: "Wales"
+    },
+    {
+      value: "northern-ireland",
+      text: "Northern Ireland"
+    }
+  ]
+}) }}
+
+</div>
+
+{% endblock %}
