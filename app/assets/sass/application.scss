@@ -14,3 +14,10 @@ $govuk-global-styles: true;
 @import "components/cookie-banner";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+
+.image-container {
+		@include govuk-clearfix
+	background: govuk-colour("grey-3");
+	border: 1px solid $govuk-border-colour;
+}
