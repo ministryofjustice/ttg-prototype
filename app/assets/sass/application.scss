@@ -17,7 +17,22 @@ $govuk-global-styles: true;
 
 
 .image-container {
-		@include govuk-clearfix
+	@include govuk-clearfix
 	background: govuk-colour("grey-3");
 	border: 1px solid $govuk-border-colour;
 }
+
+.govuk-button--secondary {
+	background-color: govuk-colour("grey-3");
+	color: govuk-colour("black") !important;
+	box-shadow: 0 2px 0 govuk-colour("grey-2");
+
+	&:hover {
+		background-color: govuk-colour("grey-2");
+	}
+}
+
+.govuk-button--nospacing{
+	margin-bottom: govuk-spacing(0)
+}
+

@@ -1,0 +1,53 @@
+
+{% extends "resettlement-planning/layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block content %}
+  
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+
+<h1 class="govuk-heading-l">Edit GP registration details</h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="../{{surgery.id}}" method="post">
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="previous-name">
+              Previous name(s)
+            </label>
+            <input class="govuk-input" id="previous-name" name="previous-name" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="nhs-number">
+              NHS number
+            </label>
+            <input class="govuk-input" id="nhs-number" name="nhs-number" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="phone">
+              Phone number
+            </label>
+            <input class="govuk-input" id="phone" name="phone" type="text">
+          </div>
+
+          <button type="submit" class="govuk-button">
+            Save
+          </button>
+        </form>
+
+  </div>
+</div>
+
+{% endblock %}

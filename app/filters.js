@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 module.exports = function (env) {
   /**
    * Instantiate object used to store the methods registered as a
@@ -41,5 +43,14 @@ module.exports = function (env) {
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
+
+
+  filters.formatDate = function(str,format) {
+      var d = moment(str).format(format);
+      if (d !== 'Invalid date') return d;
+      else return '';
+  }
+
+
   return filters
 }

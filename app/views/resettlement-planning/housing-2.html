@@ -1,0 +1,81 @@
+{% extends "resettlement-planning/layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block content %}
+  
+<a href="/resettlement-planning/{{person.index}}/housing" class="govuk-back-link">Back</a>
+<h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% if data.addressProvided == 'yes' %}
+    <form action="housing-post" method="post" novalidate>
+
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+            What address {{person.name.first}} has provided?
+            </h1>
+          </legend>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-street">
+              Building and street
+              <span class="govuk-visually-hidden">line 1 of 2</span>
+            </label>
+            <input class="govuk-input" id="address-street" name="address-street" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-town">
+              Town or city
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-postcode">
+              Postcode
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">
+      Save
+      </button>
+      
+      
+    </form>
+    {% else %}
+    <form action="housing-3" method="post" novalidate>
+
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="release-location">
+                What is {{person.name.first}}&apos;s release location?
+              </label>
+            </h1>
+            <span class="govuk-hint">
+              Enter a town or city
+            </span>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="release-location" type="text">
+          </div>
+          <button type="submit" class="govuk-button">
+      Continue
+      </button>
+</form>
+      {% endif %}
+  </div>
+</div>
+        
+{% endblock %}

@@ -7,4 +7,8 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+
+  $("[data-action='print-gp-form']").click(function(e){
+  	window.open("https://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf", "_blank")
+  })
 })

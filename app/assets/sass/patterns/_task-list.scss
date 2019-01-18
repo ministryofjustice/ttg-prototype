@@ -30,7 +30,6 @@
   list-style: none;
   padding-left: 0;
   @include govuk-media-query($from: tablet) {
-    padding-left: govuk-spacing(6);
   }
 }
 

@@ -1,0 +1,103 @@
+{% extends "resettlement-planning/layout.html" %}
+{% block pageTitle %}
+{% endblock %}
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+{% block content %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+<h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-inset-text">
+            The following details will be entered on the GP registration (GMS1). This must be printed and signed by {{person.name.first}} and sent to the GP.
+        </div>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Surname
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.name.last}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    First names
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.name.first}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Previous surnames
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.previousName}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.dateOfBirth | formatDate('D MMMM YYYY') }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.address.street}} <br>
+                    {{person.address.city}} <br>
+                    {{person.address.postcode}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    NHS Number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.nhsNumber}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{person.phone}}
+                </dd>
+            </div>
+        </dl>
+        <div><a href="{{surgery.id}}/edit-gp" title="" class="govuk-button govuk-button--secondary">Edit details</a> </div>
+        <h2 class="govuk-heading-m">GP details</h2>
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{surgery.name}}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{surgery.address|safe}}
+                </dd>
+            </div>
+        </dl>
+        <p>{{query.gpid}}</p>
+        <form action="gp-form-print" method="post">
+            <input type="hidden" name="gpid" value="{{query.gpid}}">
+            <button class="govuk-button" data-action="print-gp-form" title="">Print GMS1 form</button></form>
+    </div>
+</div>
+{% endblock %}
