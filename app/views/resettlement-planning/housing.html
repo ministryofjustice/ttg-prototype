@@ -17,13 +17,13 @@
 <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
 
-{% if person.onLicence %}
+{% if person.onLicence and person.hasAddress %}
 <p>{{person.name.first}} will be released on licence at the following address:</p>
 {% elseif person.hasAddress %}
 <p>{{person.name.first}} has provided the following address:</p>
 {% endif %}
 
-{% if person.onLicence or person.hasAddress %}
+{% if person.onLicence and person.hasAddress %}
 <h3 class="govuk-heading-s">Address</h3>
 <p>{{person.address.street}} <br>
 	{{person.address.city}} <br>
@@ -33,38 +33,37 @@
 <a href="#" class="govuk-button govuk-button--secondary" title="">Edit address</a>
 {% endif %}
 
-{% if not person.hasAddress %}
+{% if person.hasAddress != true %}
 
 <form action="housing-2" method="post" novalidate>
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h1 class="govuk-fieldset__heading">
+          Has {{person.name.first}} provided an address?
+        </h1>
+      </legend>
+      <div class="govuk-radios govuk-radios--inline">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addressProvided-1" name="addressProvided" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="addressProvided-1">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="addressProvided-2" name="addressProvided" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="addressProvided-2">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
 
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                <h1 class="govuk-fieldset__heading">
-                  Has {{person.name.first}} provided an address?
-                </h1>
-              </legend>
-              <div class="govuk-radios govuk-radios--inline">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="addressProvided-1" name="addressProvided" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="addressProvided-1">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="addressProvided-2" name="addressProvided" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="addressProvided-2">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-
-          <button type="submit" class="govuk-button">
-            Continue
-          </button>
-        </form>
+  <button type="submit" class="govuk-button">
+    Continue
+  </button>
+</form>
 
 {%endif%}
 
