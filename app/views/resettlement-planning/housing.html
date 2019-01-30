@@ -17,13 +17,13 @@
 <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
 
-{% if person.onLicence and person.hasAddress %}
+{% if person.onLicence %}
 <p>{{person.name.first}} will be released on licence at the following address:</p>
 {% elseif person.hasAddress %}
 <p>{{person.name.first}} has provided the following address:</p>
 {% endif %}
 
-{% if person.onLicence and person.hasAddress %}
+{% if person.onLicence or person.hasAddress %}
 <h3 class="govuk-heading-s">Address</h3>
 <p>{{person.address.street}} <br>
 	{{person.address.city}} <br>
@@ -33,7 +33,7 @@
 <a href="#" class="govuk-button govuk-button--secondary" title="">Edit address</a>
 {% endif %}
 
-{% if person.hasAddress != true %}
+{% if person.hasAddress != true and not person.releaseLocation %}
 
 <form action="housing-2" method="post" novalidate>
   <div class="govuk-form-group">
@@ -64,6 +64,29 @@
     Continue
   </button>
 </form>
+
+{% elseif person.releaseLocation %}
+<p>{{person.name.first}} will be released to {{person.releaseLocation}}</p>
+
+<div class="govuk-grid-row">
+  
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+            Housing services available in {{data['release-location']}}
+            </h1>
+            <section class="ttg-section">
+            <h2 class="govuk-heading-m">Sheffield Council</h2>
+            <p>Phone: 0114 273 6306</p>
+            <p><a class="govuk-link--no-visited-state" href="https://www.sheffield.gov.uk/content/sheffield/home/housing/housing-advice-options-line.html">Visit website</a></p>
+            </section>
+
+            <section class="ttg-section">
+            <h2 class="govuk-heading-m">{{shelter.Name}}</h2>
+            <p>Phone: 0344 515 1515</p>
+            <p><a class="govuk-link--no-visited-state" href="{{shelter.Website}}">Visit website</a></p>
+            </section>
+  </div>
+</div>
 
 {%endif%}
 

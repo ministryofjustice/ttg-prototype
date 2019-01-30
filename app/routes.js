@@ -24,7 +24,11 @@ router.get("*", function(req, res, next){
 router.get("/resettlement-planning", function(req, res, next){
 	res.locals.caseList = cases;
 	next();
+});
 
+router.post("/resettlement-planning/:personId/*", function(req, res, next){
+	res.locals.person = cases.filter(person => person.index == req.params.personId)[0];
+	next();
 });
 
 router.get("/resettlement-planning/:personId/*", function(req, res, next){
@@ -65,22 +69,31 @@ router.get("/resettlement-planning/:personId/register-gp/:gpid", function(req, r
 
 
 router.post("/resettlement-planning/:personId/housing-3", function(req, res, next){
-	let location = req.body['release-location'];
-	let url = `https://services.shelter.org.uk/api/v1/location/${location}?api_token=inoVa1mNLOG1SKKMThHBJ5ZZYGtx6Zupy2EO2dmW`;
-	request(url, function (error, response, body) {
-		  if (!error && response.statusCode == 200) {
-		    var data = JSON.parse(body);
-		    res.locals.shelter = data.data.agencies.data[0];
-		    console.log(res.locals.shelter);
-			res.render("resettlement-planning/housing-3");
-	  }
-	})
+	res.locals.person.releaseLocation = req.body["release-location"];
+	res.redirect(`/resettlement-planning/${req.params.personId}/housing`)
 });
 
+router.get("/resettlement-planning/:personId/housing", function(req, res, next){
+	console.log(res.locals.person)
+	let location = res.locals.person.releaseLocation;
+	if(location){
+		let url = `https://services.shelter.org.uk/api/v1/location/${location}?api_token=inoVa1mNLOG1SKKMThHBJ5ZZYGtx6Zupy2EO2dmW`;
+		request(url, function (error, response, body) {
+			  if (!error && response.statusCode == 200) {
+			    var data = JSON.parse(body);
+			    res.locals.shelter = data.data.agencies.data[0];
+			    console.log(res.locals.shelter);
+				res.render("resettlement-planning/housing");
+				
+		  }
+		})
+	} else {
+		next();
+	}
+})
 
-router.get("/resettlement-planning/:personId/:pageName", function(req, res, next){
-	res.render("resettlement-planning/" + req.params.pageName);
-});
+
+
 
 router.post("/resettlement-planning/:personId/gp-form-print", function(req, res, next){
 	let person = cases.filter(person => person.index == req.params.personId)[0];
@@ -100,14 +113,18 @@ router.post("/resettlement-planning/:personId/housing-post", function(req, res, 
 	person.hasAddress = true;
 
 	person.address.street = req.body["address-street"];
-	person.address.town = req.body["address-town"];
+	person.address.city = req.body["address-town"];
 	person.address.postcode = req.body["address-postcode"];
+
+	console.log(person)
 
 	res.redirect(`/resettlement-planning/${req.params.personId}/details`)
 });
 
 
-
+router.get("/resettlement-planning/:personId/:pageName", function(req, res, next){
+	res.render("resettlement-planning/" + req.params.pageName);
+});
 
 
 
