@@ -49,6 +49,9 @@
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="gp">
 					Register at a GP
 				</a>
+				{% if person.gpid %}
+				<strong class="govuk-tag app-task-list__task-completed" id="gp-completed">Completed</strong>
+				{% endif %}
 			</li>
 		</ul>
 	</div>

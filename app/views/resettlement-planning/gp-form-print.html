@@ -1,0 +1,45 @@
+{% extends "resettlement-planning/layout.html" %}
+{% block pageTitle %}
+{% endblock %}
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+        <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+        <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
+
+        <h2 class="govuk-heading-m">GP details</h2>
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Name
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{surgery.name}}
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{surgery.address|safe}}
+                        </dd>
+                    </div>
+                </dl>
+
+        <div class="ttg-print">
+            <a class="ttg-print__link" href="https://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf" title="">
+            <i class="ttg-print__icon"></i>
+            <span class="ttg-print__link-description">Print registration form</span></a>
+        </div>
+        <div>
+        <a href="/resettlement-planning/{{person.index}}/gp" class="govuk-button govuk-button--secondary">Choose a different GP</a></div>
+    </div>
+
+</div>
+{% endblock %}

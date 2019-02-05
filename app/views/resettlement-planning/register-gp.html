@@ -94,10 +94,9 @@
                 </dd>
             </div>
         </dl>
-        <p>{{query.gpid}}</p>
-        <form action="gp-form-print" method="post">
-            <input type="hidden" name="gpid" value="{{query.gpid}}">
-            <button class="govuk-button" data-action="print-gp-form" title="">Print GMS1 form</button></form>
+        <form action="/resettlement-planning/{{person.index}}/gp-form-print" method="post">
+            <input type="hidden" name="gpid" value="{{surgery.id}}">
+            <button class="govuk-button" title="">Register at this GP</button></form>
     </div>
 </div>
 {% endblock %}
