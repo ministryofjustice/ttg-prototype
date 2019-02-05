@@ -15,15 +15,8 @@ request('https://my.api.mockaroo.com/prisoners.json?key=4f785100', function (err
 })
 
 
-router.get("*", function(req, res, next){
+router.all("*", function(req, res, next){
 	res.locals.query = req.query;
-	next();
-
-
-});
-
-router.get("/resettlement-planning", function(req, res, next){
-	res.locals.caseList = cases;
 	next();
 });
 
@@ -37,17 +30,30 @@ router.get("/resettlement-planning/:personId/*", function(req, res, next){
 	next();
 });
 
+router.get("/resettlement-planning", function(req, res, next){
+	res.locals.caseList = cases;
+	next();
+});
+
+//gp routes
+
 router.get("/resettlement-planning/:personId/gp", function(req, res, next){
 	let person = cases.filter(person => person.index == req.params.personId)[0];
 	if(person.gpid){
-		res.redirect(`/resettlement-planning/${req.params.personId}/gp-form-print`)
+		res.locals.surgery = require("../app/data/doctors.js")
+							.filter(doctor => doctor.id = person.gpid)[0];
+		res.redirect(`/resettlement-planning/${req.params.personId}/gp-form-print`);
 	} else {
-	res.locals.surgeries = require("../app/data/doctors.js");
-	next();
-}
+		res.locals.surgeries = require("../app/data/doctors.js");
+		next();
+	}
 })
 
-
+router.get("/prisoner/gp", function(req, res, next){
+	
+	res.locals.surgeries = require("../app/data/doctors.js");
+	next();
+})
 
 router.post("/resettlement-planning/:personId/register-gp/:gpid", function(req, res, next){
 
@@ -72,12 +78,21 @@ router.get("/resettlement-planning/:personId/register-gp/:gpid", function(req, r
 	res.render("resettlement-planning/register-gp");
 });
 
+router.post("/resettlement-planning/:personId/gp-form-print", function(req, res, next){
+	let person = cases.filter(person => person.index == req.params.personId)[0];
 
+	person.gpid = req.body.gpid;
 
-router.post("/resettlement-planning/:personId/housing-3", function(req, res, next){
-	res.locals.person.releaseLocation = req.body["release-location"];
-	res.redirect(`/resettlement-planning/${req.params.personId}/housing`)
+	next();
 });
+
+router.get("/resettlement-planning/:personId/gp-form-print", function(req, res, next){
+	res.locals.surgery = require("../app/data/doctors.js").filter(surgery => surgery.id === res.locals.person.gpid)[0];
+	next();
+})
+
+
+//housing
 
 router.get("/resettlement-planning/:personId/housing", function(req, res, next){
 	console.log(res.locals.person)
@@ -99,21 +114,10 @@ router.get("/resettlement-planning/:personId/housing", function(req, res, next){
 })
 
 
-
-
-router.post("/resettlement-planning/:personId/gp-form-print", function(req, res, next){
-	let person = cases.filter(person => person.index == req.params.personId)[0];
-
-	person.gpid = req.body.gpid;
-
-	next();
+router.post("/resettlement-planning/:personId/housing-3", function(req, res, next){
+	res.locals.person.releaseLocation = req.body["release-location"];
+	res.redirect(`/resettlement-planning/${req.params.personId}/housing`)
 });
-
-router.get("/resettlement-planning/:personId/gp-form-print", function(req, res, next){
-	res.locals.surgery = require("../app/data/doctors.js").filter(surgery => surgery.id === res.locals.person.gpid)[0];
-	next();
-})
-
 
 
 
@@ -132,6 +136,20 @@ router.post("/resettlement-planning/:personId/housing-post", function(req, res, 
 });
 
 
+//email routes
+
+router.post("/resettlement-planning/:personId/email-2", function(req, res, next){
+	if(req.body["has-email"] = "yes") {
+		res.locals.person.email = req.body["email"];
+	} else {
+
+	}
+
+	next();
+});
+
+
+//genetal route functions
 router.get("/resettlement-planning/:personId/:pageName", function(req, res, next){
 	res.render("resettlement-planning/" + req.params.pageName);
 });

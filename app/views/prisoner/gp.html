@@ -1,13 +1,13 @@
-{% extends "prisoner/layout.html" %}
+{% extends "resettlement-planning/layout.html" %}
 
 {% block pageTitle %}
-  My convictions
 {% endblock %}
 
 {% block header %}
   <!-- Blank header with no service name for the start page -->
   {{ govukHeader() }}
 {% endblock %}
+
 
 {% block beforeContent %}
   <div class="govuk-breadcrumbs">
@@ -29,47 +29,32 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        My convictions
-      </h1>
+<h1 class="govuk-heading-xl">Find a GP</h1>
 
-<div class="govuk-inset-text">
-  You need to declare 3 convictions. Your criminal record will be completely spent on 23 June 2020.
-</div>
 
 <table class="govuk-table">
-  <caption class="govuk-table__caption">Convictions you need to declare</caption>
+  <caption class="govuk-table__caption">Nearest GPs to release your location</caption>
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th class="govuk-table__header" scope="col">Name</th>
-      <th class="govuk-table__header" scope="col">Date of conviction</th>
-      <th class="govuk-table__header" scope="col">Spent date</th>
+      <th class="govuk-table__header" scope="col">Name and address</th>
+      <th class="govuk-table__header" scope="col">Distance</th>
+      <th class="govuk-table__header" scope="col"></th>
     </tr>
   </thead>
   <tbody class="govuk-table__body">
+
+    {% for surgery in surgeries %}
     <tr class="govuk-table__row">
-      <th class="govuk-table__header" scope="row">Assault</th>
-      <td class="govuk-table__cell">23 June 2014</td>
-      <td class="govuk-table__cell">23 June 2019</td>
+      <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id={{surgery.id}}" target="_blank">{{surgery.name}}</a></td>
+      <td class="govuk-table__cell">{{surgery.distance}} miles away</td>
+      <td class="govuk-table__cell"><a class="govuk-button govuk-button--secondary govuk-button--nospacing" href="register-gp/{{surgery.id}}">Register</a></td>
     </tr>
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header" scope="row">Theft</th>
-      <td class="govuk-table__cell">19 May 2015</td>
-      <td class="govuk-table__cell">19 May 2019</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header" scope="row">Grand theft auto</th>
-      <td class="govuk-table__cell">23 June 2015</td>
-      <td class="govuk-table__cell">23 June 2020</td>
-    </tr>
+    {% endfor %}
   </tbody>
 </table>
-      
+</div>
 
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
+<div class="govuk-grid-column-one-third">
 
       <aside class="app-related-items" role="complementary">
         <span class="govuk-caption-m">Jason Burmingham</span>
@@ -93,5 +78,5 @@
       </aside>
 
     </div>
-  </div>
+</div>
 {% endblock %}

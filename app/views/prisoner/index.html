@@ -1,7 +1,7 @@
-{% extends "verify-licence/layout.html" %}
+{% extends "prisoner/layout.html" %}
 
 {% block pageTitle %}
-  Verify a licence
+  
 {% endblock %}
 
 {% block header %}
@@ -10,19 +10,19 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <div class="govuk-breadcrumbs">
-    <ol class="govuk-breadcrumbs__list">
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link" href="#">Her Majesty’s Prison & Probation Service</a>
-      </li>
-      <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link">Prisoner services</a>
-      </li>
-    </ol>
-  </div>
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Her Majesty’s Prison & Probation Service</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">Prisoner services</a>
+    </li>
+  </ol>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -42,7 +42,7 @@
       <div class="prisoner__section">
         <h2 class="prisoner__heading govuk-heading-m">Health</h2>
         <p>There are 5 GPs near you who are open for registration</p>
-        <p><a class="govuk-button govuk-button--secondary" href="" title="">View all GPs</a>
+        <p><a class="govuk-button govuk-button--secondary" href="/prisoner/gp" title="">View all GPs</a>
       </div>
 
 
