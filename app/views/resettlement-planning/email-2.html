@@ -1,0 +1,81 @@
+{% extends "resettlement-planning/layout.html" %}
+{% block pageTitle %}
+{% endblock %}
+{% block header %}
+<!-- Blank header with no service name for the start page -->
+{{ govukHeader() }}
+{% endblock %}
+{% block content %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+<h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
+
+
+{% if person.email %}
+<h1 class="govuk-heading-xl">Email address</h1>
+<p>{{person.email}}</p>
+
+<a href="/resettlement-planning/{{person.index}}/email" class="govuk-button govuk-button--secondary">Edit email</a>
+
+{%else%}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+<h1 class="govuk-heading-xl">Sign up an email account</h1>
+
+		<p>You will need {{person.name.first}} up for a free email account with the following providers:</p>
+		<ul class="govuk-list">
+		    <li><a href="https://gmail.com" class="govuk-link" target="blank">Gmail</a></li>
+		    <li><a href="https://outlook.live.com/" class="govuk-link" target="blank">Outlook</a></li>
+		    <li><a href="https://login.yahoo.com/account/create" class="govuk-link" target="blank">Yahoo</a></li>
+		</ul>
+		<p>Email address and password will be given to {{person.name.first}} when they leave prison.</p>
+		<form action="" method="post" accept-charset="utf-8">
+		    <div class="govuk-form-group">
+		        <fieldset class="govuk-fieldset">
+		            <legend class="govuk-fieldset__legend govuk-label govuk-label--m">
+					What email provider have you used?
+		            </legend>
+		            <div class="govuk-radios">
+		                <div class="govuk-radios__item">
+		                    <input class="govuk-radios__input" id="email-provider-1" name="email-provider" type="radio" value="england">
+		                    <label class="govuk-label govuk-radios__label" for="email-provider-1">
+		                        Gmail
+		                    </label>
+		                </div>
+		                <div class="govuk-radios__item">
+		                    <input class="govuk-radios__input" id="email-provider-2" name="email-provider" type="radio" value="scotland">
+		                    <label class="govuk-label govuk-radios__label" for="email-provider-2">
+		                        Outlook
+		                    </label>
+		                </div>
+		                <div class="govuk-radios__item">
+		                    <input class="govuk-radios__input" id="email-provider-3" name="email-provider" type="radio" value="wales">
+		                    <label class="govuk-label govuk-radios__label" for="email-provider-3">
+		                        Yahoo
+		                    </label>
+		                </div>
+		            </div>
+		        </fieldset>
+		    </div>
+		    <div class="govuk-form-group">
+		        <label class="govuk-label govuk-label--m" for="email">
+		            Email address
+		        </label>
+		        <input class="govuk-input" id="email" name="email" type="text">
+		    </div>
+
+		    <div class="govuk-form-group">
+		        <label class="govuk-label govuk-label--m" for="password">
+		            Password
+		        </label>
+		        <input class="govuk-input" id="password" name="password" type="text">
+		    </div>
+		    <input type="hidden" name="has-email" value="true">
+		    <button type="submit" class="govuk-button">Save</button>
+		</form>
+	</div>
+</div>
+
+{% endif %}
+{% endblock %}

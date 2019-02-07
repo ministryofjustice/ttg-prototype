@@ -138,13 +138,14 @@ router.post("/resettlement-planning/:personId/housing-post", function(req, res, 
 
 //email routes
 
+
+
 router.post("/resettlement-planning/:personId/email-2", function(req, res, next){
 	if(req.body["has-email"] = "yes") {
 		res.locals.person.email = req.body["email"];
 	} else {
 
 	}
-
 	next();
 });
 

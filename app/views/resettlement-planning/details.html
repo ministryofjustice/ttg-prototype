@@ -30,9 +30,17 @@
 				</a>
 			</li>
 			<li class="app-task-list__item">
-				<a class="app-task-list__task-name govuk-link--no-visited-state" href="email">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" 
+				{% if person.email %}
+					href="email-2"
+				{% else %}
+					href="email"
+				{% endif %}>
 					Email address
 				</a>
+				{% if person.email %}
+				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
+				{% endif %}
 			</li>
 
 			<li class="app-task-list__item">
