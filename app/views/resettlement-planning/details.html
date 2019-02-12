@@ -20,7 +20,7 @@
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="housing">					
 					Housing
 				</a>
-				{% if person.onLicence or person.hasAddress %}
+				{% if person.hasAddress %}
 				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
 				{% endif %}
 			</li>
@@ -52,6 +52,10 @@
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="work">
 					Work and benefits
 				</a>
+				{% if person.hasWork %}
+				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
+				{% endif %}
+				
 			</li>
 			<li class="app-task-list__item">
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="gp">

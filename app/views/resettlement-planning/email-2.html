@@ -11,19 +11,28 @@
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
 
 
-{% if person.email %}
+{% if person.hasEmail %}
 <h1 class="govuk-heading-xl">Email address</h1>
+<p class="govuk-label govuk-label--s">{{person.name.first}} has provided the following email</p>
 <p>{{person.email}}</p>
 
 <a href="/resettlement-planning/{{person.index}}/email" class="govuk-button govuk-button--secondary">Edit email</a>
 
-{%else%}
+{% elseif person.emailProvider %}
+
+<p class="govuk-label govuk-label--s">Email address</p>
+<p class="govuk-body-l">{{person.email}}</p>
+<div class="govuk-inset-text">
+<p>This email address has been set up for {{person.name.first}}. The password will be provided when they leave.</p>
+</div>
+<a href="/resettlement-planning/{{person.index}}/email" class="govuk-button govuk-button--secondary">Edit email</a>
+{% else %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 <h1 class="govuk-heading-xl">Sign up an email account</h1>
 
-		<p>You will need {{person.name.first}} up for a free email account with the following providers:</p>
+		<p>You will need to sign {{person.name.first}} up for a free email account with one of the following providers:</p>
 		<ul class="govuk-list">
 		    <li><a href="https://gmail.com" class="govuk-link" target="blank">Gmail</a></li>
 		    <li><a href="https://outlook.live.com/" class="govuk-link" target="blank">Outlook</a></li>
@@ -38,19 +47,19 @@
 		            </legend>
 		            <div class="govuk-radios">
 		                <div class="govuk-radios__item">
-		                    <input class="govuk-radios__input" id="email-provider-1" name="email-provider" type="radio" value="england">
+		                    <input class="govuk-radios__input" id="email-provider-1" name="email-provider" type="radio" value="Gmail">
 		                    <label class="govuk-label govuk-radios__label" for="email-provider-1">
 		                        Gmail
 		                    </label>
 		                </div>
 		                <div class="govuk-radios__item">
-		                    <input class="govuk-radios__input" id="email-provider-2" name="email-provider" type="radio" value="scotland">
+		                    <input class="govuk-radios__input" id="email-provider-2" name="email-provider" type="radio" value="Outlook">
 		                    <label class="govuk-label govuk-radios__label" for="email-provider-2">
 		                        Outlook
 		                    </label>
 		                </div>
 		                <div class="govuk-radios__item">
-		                    <input class="govuk-radios__input" id="email-provider-3" name="email-provider" type="radio" value="wales">
+		                    <input class="govuk-radios__input" id="email-provider-3" name="email-provider" type="radio" value="Yahoo">
 		                    <label class="govuk-label govuk-radios__label" for="email-provider-3">
 		                        Yahoo
 		                    </label>

@@ -138,14 +138,21 @@ router.post("/resettlement-planning/:personId/housing-post", function(req, res, 
 
 //email routes
 
-
-
 router.post("/resettlement-planning/:personId/email-2", function(req, res, next){
-	if(req.body["has-email"] = "yes") {
-		res.locals.person.email = req.body["email"];
-	} else {
 
-	}
+		res.locals.person.hasEmail = req.body["has-email"] === "yes";
+		res.locals.person.emailProvider = req.body["email-provider"];
+		res.locals.person.email = req.body["email"];
+		res.locals.person.emailPassword = req.body["password"];
+
+	next();
+});
+
+//employment routes
+
+router.post("/resettlement-planning/:personId/work", function(req, res, next){
+	res.locals.person.hasWork = req.body["has-work"];
+
 	next();
 });
 

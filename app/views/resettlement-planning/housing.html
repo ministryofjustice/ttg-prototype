@@ -17,13 +17,8 @@
 <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
 
-{% if person.onLicence %}
-<p>{{person.name.first}} will be released on licence at the following address:</p>
-{% elseif person.hasAddress %}
+{% if person.hasAddress %}
 <p>{{person.name.first}} has provided the following address:</p>
-{% endif %}
-
-{% if person.onLicence or person.hasAddress %}
 <h3 class="govuk-heading-s">Address</h3>
 <p>{{person.address.street}} <br>
 	{{person.address.city}} <br>
