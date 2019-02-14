@@ -16,22 +16,66 @@
 <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
 <div class="govuk-grid-row">
-  
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">
-            Housing services available in {{data['release-location']}}
-            </h1>
-            <section class="ttg-section">
-            <h2 class="govuk-heading-m">Sheffield Council</h2>
-            <p>Phone: 0114 273 6306</p>
-            <p><a class="govuk-link--no-visited-state" href="https://www.sheffield.gov.uk/content/sheffield/home/housing/housing-advice-options-line.html">Visit website</a></p>
-            </section>
+    {% if data.addressProvided == 'yes' %}
+    <form action="housing-post" method="post" novalidate>
 
-            <section class="ttg-section">
-            <h2 class="govuk-heading-m">{{shelter.Name}}</h2>
-            <p>Phone: 0344 515 1515</p>
-            <p><a class="govuk-link--no-visited-state" href="{{shelter.Website}}">Visit website</a></p>
-            </section>
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+            What address has {{person.name.first}}  provided?
+            </h1>
+          </legend>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-street">
+              Building and street
+              <span class="govuk-visually-hidden">line 1 of 2</span>
+            </label>
+            <input class="govuk-input" id="address-street" name="address-street" type="text">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-town">
+              Town or city
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="address-postcode">
+              Postcode
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
+          </div>
+        </fieldset>
+      </div>
+      <button type="submit" class="govuk-button">
+      Save
+      </button>
+      
+      
+    </form>
+    {% else %}
+    <form action="housing-3" method="post" novalidate>
+
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--l" for="release-location">
+                What is {{person.name.first}}&apos;s release location?
+              </label>
+            </h1>
+            <span class="govuk-hint">
+              Enter a town or city
+            </span>
+            <input class="govuk-input govuk-!-width-two-thirds" id="release-location" name="release-location" type="text">
+          </div>
+
+          <button type="submit" class="govuk-button">
+      Continue
+      </button>
+</form>
+      {% endif %}
   </div>
 </div>
         

@@ -26,7 +26,7 @@
         Will {{person.name.first}} have employment when they leave prison?
       </h1>
             </legend>
-            <div class="govuk-radios govuk-radios--conditional" data-module="radios">
+            <div class="govuk-radios govuk-radios--inline" data-module="radios">
                 <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="has-work-1" name="has-work" type="radio" value="yes" data-aria-controls="conditional-has-work-1">
                     <label class="govuk-label govuk-radios__label" for="has-work-1">
@@ -60,6 +60,14 @@
 
 		<p><a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/universal-credit" title="">Find out more about Universal Credit</a></p>
 	</div>
+</div>
+
+{% elseif person.hasWork == "yes" %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Work and Benefits</h1>
+        
+    </div>
 </div>
 
 {% endif %}

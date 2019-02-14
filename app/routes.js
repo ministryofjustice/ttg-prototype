@@ -94,24 +94,19 @@ router.get("/resettlement-planning/:personId/gp-form-print", function(req, res, 
 
 //housing
 
-router.get("/resettlement-planning/:personId/housing", function(req, res, next){
-	console.log(res.locals.person)
-	let location = res.locals.person.releaseLocation;
-	if(location){
-		let url = `https://services.shelter.org.uk/api/v1/location/${location}?api_token=inoVa1mNLOG1SKKMThHBJ5ZZYGtx6Zupy2EO2dmW`;
-		request(url, function (error, response, body) {
-			  if (!error && response.statusCode == 200) {
-			    var data = JSON.parse(body);
-			    res.locals.shelter = data.data.agencies.data[0];
-			    console.log(res.locals.shelter);
-				res.render("resettlement-planning/housing");
-				
-		  }
-		})
-	} else {
-		next();
-	}
+router.post("/resettlement-planning/:personId/housing", function(req, res, next){
+
+	if(req.body.resetHousing){
+		delete res.locals.person.releaseLocation;
+		res.locals.person.hasAddress = false;
+	} 
+	next();
 })
+
+router.post("/resettlement-planning/:personId/housing-2", function(req, res, next){
+	res.locals.person.addressProvided = req.body["address-provided"];
+	next()
+});
 
 
 router.post("/resettlement-planning/:personId/housing-3", function(req, res, next){
@@ -140,10 +135,15 @@ router.post("/resettlement-planning/:personId/housing-post", function(req, res, 
 
 router.post("/resettlement-planning/:personId/email-2", function(req, res, next){
 
-		res.locals.person.hasEmail = req.body["has-email"] === "yes";
-		res.locals.person.emailProvider = req.body["email-provider"];
-		res.locals.person.email = req.body["email"];
-		res.locals.person.emailPassword = req.body["password"];
+	res.locals.person.hasEmail = req.body["has-email"] === "yes";
+	res.locals.person.emailProvider = req.body["email-provider"];
+	res.locals.person.email = req.body["email"];
+	res.locals.person.emailPassword = req.body["password"];
+	res.locals.person.hasBank = req.body["has-bank"];
+
+	if(req.body["has-email"] == "yes"){
+		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	}
 
 	next();
 });
@@ -153,6 +153,32 @@ router.post("/resettlement-planning/:personId/email-2", function(req, res, next)
 router.post("/resettlement-planning/:personId/work", function(req, res, next){
 	res.locals.person.hasWork = req.body["has-work"];
 
+	if(req.body["has-work"] == "yes"){
+		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	}
+	next();
+});
+
+//banking routes
+
+router.post("/resettlement-planning/:personId/bank", function(req, res, next){
+	res.locals.person.hasBank = req.body["has-bank"];
+
+	if(req.body["has-bank"] == "yes"){
+		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	}
+	next();
+});
+
+
+//ID routes
+
+router.post("/resettlement-planning/:personId/proof-of-id", function(req, res, next){
+	res.locals.person.hasId = req.body["has-id"];
+
+	if(req.body["has-id"] == "yes"){
+		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	}
 	next();
 });
 
