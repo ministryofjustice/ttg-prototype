@@ -19,5 +19,40 @@
 
 <h2 class="govuk-heading-m">Proof of Identification</h2>
 
-        
+{% if not person.hasId %}
+<form action="" method="post" novalidate>
+    <div class="govuk-form-group govuk-form-group">
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+        Does {{person.name.first}} have any proof of identification?
+      </h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--inline" data-module="radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="has-id-1" name="has-id" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="has-id-1">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="has-id-2" name="has-id" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="has-id-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <button type="submit" class="govuk-button">
+        Continue
+    </button>
+</form>
+
+{% elseif person.hasId == "no" %}
+
+<h2 class="govuk-heading-l">How to get proof of identification</h2>
+
+{% endif %}
+
 {% endblock %}

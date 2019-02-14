@@ -17,8 +17,7 @@
 	<div class="govuk-grid-column-two-thirds">
 		<ul class="app-task-list__items">
 			<li class="app-task-list__item">
-				<a class="app-task-list__task-name govuk-link--no-visited-state" href="housing">					
-					Housing
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="housing">	Housing
 				</a>
 				{% if person.hasAddress %}
 				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
@@ -28,6 +27,9 @@
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="proof-of-id">
 					Proof of Identification
 				</a>
+				{% if person.hasId == "yes" %}
+				<strong class="govuk-tag app-task-list__task-completed" id="bank-completed">Completed</strong>
+				{% endif %}
 			</li>
 			<li class="app-task-list__item">
 				<a class="app-task-list__task-name govuk-link--no-visited-state" 
@@ -47,13 +49,16 @@
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="bank">
 					Bank account
 				</a>
+				{% if person.hasBank == "yes" %}
+				<strong class="govuk-tag app-task-list__task-completed" id="bank-completed">Completed</strong>
+				{% endif %}
 			</li>
 			<li class="app-task-list__item">
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="work">
 					Work and benefits
 				</a>
 				{% if person.hasWork %}
-				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
+				<strong class="govuk-tag app-task-list__task-completed" id="work-completed">Completed</strong>
 				{% endif %}
 				
 			</li>

@@ -16,16 +16,16 @@
 <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {% if data.addressProvided == 'yes' %}
+  <div class="govuk-grid-column-full">
+    {% if data.addressProvided != 'no' %}
     <form action="housing-post" method="post" novalidate>
 
       
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-            What address has {{person.name.first}}  provided?
+            Where will {{person.name.first}} be staying when released?
             </h1>
           </legend>
           <div class="govuk-form-group">
@@ -33,14 +33,14 @@
               Building and street
               <span class="govuk-visually-hidden">line 1 of 2</span>
             </label>
-            <input class="govuk-input" id="address-street" name="address-street" type="text">
+            <input class="govuk-input govuk-!-width-two-thirds" id="address-street" name="address-street" type="text">
           </div>
 
           <div class="govuk-form-group">
             <label class="govuk-label" for="address-town">
               Town or city
             </label>
-            <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
+            <input class="govuk-input govuk-!-width-one-half" id="address-town" name="address-town" type="text">
           </div>
           <div class="govuk-form-group">
             <label class="govuk-label" for="address-postcode">

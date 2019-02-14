@@ -25,7 +25,12 @@
 	{{person.address.postcode}}
 </p>
 
-<a href="#" class="govuk-button govuk-button--secondary" title="">Edit address</a>
+<form action="housing" method="post" novalidate>
+      <input type="hidden" name="resetHousing" value="true">
+      <button type="submit" class="govuk-button govuk-button--secondary">
+        Edit accomodation details
+      </button>
+    </form>
 {% endif %}
 
 {% if person.hasAddress != true and not person.releaseLocation %}
@@ -35,19 +40,26 @@
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h1 class="govuk-fieldset__heading">
-          Has {{person.name.first}} provided an address?
+          Will {{person.name.first}} have accomodation when they leave?
         </h1>
       </legend>
-      <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="addressProvided-1" name="addressProvided" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="addressProvided-1">
-            Yes
+          <input class="govuk-radios__input" id="addressProvided-1" name="address-provided" type="radio" value="probationProvided">
+          <label class="govuk-label govuk-radios__label" for="address-provided-1">
+           Yes - We have provided accomodation
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="addressProvided-2" name="addressProvided" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="addressProvided-2">
+          <input class="govuk-radios__input" id="address-provided-2" name="address-provided" type="radio" value="prisonerProvided">
+          <label class="govuk-label govuk-radios__label" for="address-provided-2">
+            Yes - {{person.name.first}} has given an address where they will be staying
+          </label>
+        </div>
+        <div class="govuk-radios__divider">or</div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="address-provided-3" name="address-provided" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="address-provided-3">
             No
           </label>
         </div>
@@ -61,15 +73,31 @@
 </form>
 
 {% elseif person.releaseLocation %}
-<p>{{person.name.first}} will be released to {{person.releaseLocation}}</p>
 
 <div class="govuk-grid-row">
   
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l">
-            Housing services available in {{data['release-location']}}
-            </h1>
-            <section class="ttg-section">
+    <h1 class="govuk-heading-l">Housing</h1>
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-warning-text__assistive">Warning</span>
+        {{person.name.first}} does not have any accomodation.
+      </strong>
+    </div>
+    <p class="govuk-label govuk-label--s">Release location</p>
+    <p class="govuk-body-l">{{person.releaseLocation}}</p>
+
+    <form action="housing" method="post" novalidate>
+      <input type="hidden" name="resetHousing" value="true">
+      <button type="submit" class="govuk-button govuk-button--secondary">
+        Edit accomodation details
+      </button>
+    </form>
+
+    
+
+            <!-- <section class="ttg-section">
             <h2 class="govuk-heading-m">Sheffield Council</h2>
             <p>Phone: 0114 273 6306</p>
             <p><a class="govuk-link--no-visited-state" href="https://www.sheffield.gov.uk/content/sheffield/home/housing/housing-advice-options-line.html">Visit website</a></p>
@@ -79,7 +107,7 @@
             <h2 class="govuk-heading-m">{{shelter.Name}}</h2>
             <p>Phone: 0344 515 1515</p>
             <p><a class="govuk-link--no-visited-state" href="{{shelter.Website}}">Visit website</a></p>
-            </section>
+            </section> -->
   </div>
 </div>
 
