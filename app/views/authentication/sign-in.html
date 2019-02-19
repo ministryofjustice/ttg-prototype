@@ -1,0 +1,42 @@
+{% extends "authentication/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/authentication" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/probation" method="post" novalidate>
+            <h1 class="govuk-heading-xl">
+                Sign in to your probation services
+              </h1>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    Username or email address
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="event-name" name="event-name" type="text">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    Password
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="event-name" name="event-name" type="text">
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+        <p><a href="#" title="">I've forgotten my sign in details</a>.</p>
+    </div>
+</div>
+{% endblock %}

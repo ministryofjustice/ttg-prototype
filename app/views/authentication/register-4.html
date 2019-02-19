@@ -1,0 +1,42 @@
+{% extends "authentication/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/authentication" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<form action="/probation/" method="post" >
+<h1 class="govuk-heading-xl">Enter a new password</h1>
+    <div class="govuk-inset-text">
+      <h2 class="govuk-heading-m">Your password should:</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Be at least 8 characters.</li>
+        <li>Not a common password, like "password" or "password123".</li>
+      </ul>
+    </div>
+    <div class="govuk-form-group">
+              <label class="govuk-label" for="postcode">
+                Password
+              </label>
+        <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+    </div>
+    <div class="govuk-form-group">
+              <label class="govuk-label" for="postcode">
+                Confirm password
+              </label>
+        <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text">
+    </div>
+    <button type="submit" class="govuk-button">
+        Continue
+    </button>
+</form>
+{% endblock %}

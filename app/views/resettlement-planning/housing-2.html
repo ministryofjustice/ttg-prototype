@@ -17,7 +17,7 @@
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    {% if data.addressProvided != 'no' %}
+    {% if person.addressProvided == "probationProvided"  or person.addressProvided == "prisonerProvided" %}
     <form action="housing-post" method="post" novalidate>
 
       
