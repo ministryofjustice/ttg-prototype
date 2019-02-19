@@ -49,7 +49,7 @@ router.get("/resettlement-planning/:personId/gp", function(req, res, next){
 	}
 })
 
-router.get("/prisoner/gp", function(req, res, next){
+router.get("/probation/gp", function(req, res, next){
 	
 	res.locals.surgeries = require("../app/data/doctors.js");
 	next();

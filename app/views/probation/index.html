@@ -1,0 +1,63 @@
+{% extends "probation/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-breadcrumbs">
+  <ol class="govuk-breadcrumbs__list">
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link" href="#">Her Majesty’s Prison & Probation Service</a>
+    </li>
+    <li class="govuk-breadcrumbs__list-item">
+      <a class="govuk-breadcrumbs__link">{{serviceName}}</a>
+    </li>
+  </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{serviceName}}
+      </h1>
+
+      <div class="prisoner__section">
+        <h2 class="prisoner__heading govuk-heading-m">My convictions</h2>
+        <p>You have 3 unspent convictions</p>
+        <p><a class="govuk-button govuk-button--secondary" href="/probation/convictions" title="">Show my convictions</a>
+      </div>
+
+      <div class="prisoner__section">
+        <h2 class="prisoner__heading govuk-heading-m">Health</h2>
+        <p>There are 5 GPs near you who are open for registration</p>
+        <p><a class="govuk-button govuk-button--secondary" href="/probation/gp" title="">View all GPs</a>
+      </div>
+
+      <div class="prisoner__section">
+        <h2 class="prisoner__heading govuk-heading-m">Benefits</h2>
+        <p>Benefits can give you money to pay for stuff.</p>
+        <p><a class="govuk-button govuk-button--secondary" href="/probation/benefits" title="">Find out more about benefits</a>
+      </div>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      {% include "probation/_profile.html" %}
+
+    </div>
+  </div>
+{% endblock %}
