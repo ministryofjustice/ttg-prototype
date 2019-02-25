@@ -55,6 +55,12 @@ router.get("/probation/gp", function(req, res, next){
 	next();
 })
 
+router.get("/probation/gp/:gpid/", function(req, res, next){
+	res.locals.surgery = require("../app/data/doctors.js").filter(surgery => surgery.id === req.params.gpid)[0];
+
+	res.render("probation/gp-details");
+});
+
 router.post("/resettlement-planning/:personId/register-gp/:gpid", function(req, res, next){
 
 	let person = cases.filter(person => person.index == req.params.personId)[0];
