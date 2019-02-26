@@ -27,6 +27,8 @@ router.post("/resettlement-planning/:personId/*", function(req, res, next){
 
 router.get("/resettlement-planning/:personId/*", function(req, res, next){
 	res.locals.person = cases.filter(person => person.index == req.params.personId)[0];
+
+	console.log(res.locals.person)
 	next();
 });
 
@@ -187,6 +189,35 @@ router.post("/resettlement-planning/:personId/proof-of-id", function(req, res, n
 	}
 	next();
 });
+
+
+//sign in routes
+router.all("/authentication/users", function(req, res, next){
+	res.locals.users = require("../app/data/users.js");
+
+	next();
+});
+
+
+router.post("/authentication/register", function(req, res, next){
+	const users = require("../app/data/users.js");
+	let user = users.filter(user => user.login.username == req.body.username);
+	console.log(user)
+
+	if(user.length === 0){
+		res.locals.invalidLogin = true;
+		res.render("authentication/register");
+	} else {
+		if(user[0].login.password === req.body.password){
+			res.redirect(`/authentication/register-2`);		
+		} else {
+			res.locals.invalidLogin = true;
+			res.render("authentication/register");}
+	}
+
+
+});
+
 
 
 //genetal route functions

@@ -1,0 +1,44 @@
+{% extends "authentication/layout.html" %}
+
+{% block pageTitle %}
+  {{serviceName}}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/authentication/sign-in-2" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="register-3" method="post" novalidate>
+            <h1 class="govuk-heading-xl">
+                Set a new password
+              </h1>
+            <div class="govuk-inset-text">
+              You must choose a new password. Choose something that is easy to remember, but hard to guess. 
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    Enter Password
+                </label>
+                <input class="govuk-input govuk-input--width-20" name="password" type="password">
+            </div>
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="event-name">
+                    Confirm Password
+                </label>
+                <input class="govuk-input govuk-input--width-20" name="password-confirm" type="password">
+            </div>
+            <button type="submit" class="govuk-button">
+                Continue
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

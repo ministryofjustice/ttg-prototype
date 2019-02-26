@@ -1,4 +1,4 @@
-{% extends "prisoner/layout.html" %}
+{% extends "authentication/layout.html" %}
 
 {% block pageTitle %}
   {{serviceName}}
@@ -30,34 +30,28 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-xl">
-        Prisoner Services
+        Probation services: sign in or register
       </h1>
 
-      <div class="prisoner__section">
-        <h2 class="prisoner__heading govuk-heading-m">My convictions</h2>
-        <p>You have 3 unspent convictions</p>
-        <p><a class="govuk-button govuk-button--secondary" href="/prisoner/convictions" title="">Show my convictions</a>
-      </div>
+      <h2 class="govuk-heading-m">Sign in</h2>
+      <p>Once you've registered, you can sign in to your probation services to check things like:</p>
 
-      <div class="prisoner__section">
-        <h2 class="prisoner__heading govuk-heading-m">Health</h2>
-        <p>There are 9 GPs near you who are open for registration</p>
-        <p><a class="govuk-button govuk-button--secondary" href="/prisoner/gp" title="">View all GPs</a>
-      </div>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Check you conviction history.</li>
+        <li>Find information on useful services like health and benefits.</li>
+      </ul>
 
-      <div class="prisoner__section">
-        <h2 class="prisoner__heading govuk-heading-m">Benefits</h2>
-        <p>Benefits can give you money to pay for stuff.</p>
-        <p><a class="govuk-button govuk-button--secondary" href="/prisoner/benefits" title="">Find out more about benefits</a>
-      </div>
 
+      <p><a class="govuk-button" href="/authentication/sign-in">Sign in</a></p>
+
+
+      <h2 class="govuk-heading-m">Create an account</h2>
+      <p>To create an account, you will need the log in details provided when you left prison.</p>
+
+      <p><a class="govuk-button" href="/authentication/register">Create an account</a></p>
 
     </div>
 
-    <div class="govuk-grid-column-one-third">
-
-      {% include "prisoner/_profile.html" %}
-
-    </div>
+    
   </div>
 {% endblock %}
