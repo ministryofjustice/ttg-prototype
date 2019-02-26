@@ -218,6 +218,22 @@ router.post("/authentication/register", function(req, res, next){
 
 });
 
+router.post("/authentication/register-2", function(req, res, next){
+
+
+	if(req.body["password"] !== req.body["password-confirm"] ){
+		res.locals.invalidLogin = true;
+		res.render("authentication/register-2");
+	} else if(!req.body["password"]){
+		res.locals.invalidLogin = true;
+		res.render("authentication/register-2");
+	} else {
+		res.redirect(`/authentication/register-3`);		
+	}
+
+
+});
+
 
 
 //genetal route functions
