@@ -234,7 +234,39 @@ router.post("/authentication/register-2", function(req, res, next){
 
 });
 
+router.post("/authentication/register-3", function(req, res, next){
+	console.log(req.body['contact-details'].indexOf("email"));
+	console.log(req.body['contact-by-email']);
+	console.log(req.body['contact-by-phone']);
+	let errors = {
+		showErrors: false,
+		email: false,
+		phone: false
+	}
 
+	if(req.body['contact-details'].indexOf("email") > -1){
+		if(req.body['contact-by-email'].length === 0){
+			errors.showErrors = true;
+			errors.email = true;
+		}
+	}
+
+	if(req.body['contact-details'].indexOf("phone") > -1){
+		if(req.body['contact-by-phone'].length === 0){
+			errors.showErrors = true;
+			errors.phone = true;
+		}
+	}
+	if(errors.showErrors){
+		res.locals.errors = errors;
+		res.render("authentication/register-3");
+		
+	} else {
+		res.redirect(`/probation`);	
+	}
+	
+
+});
 
 //genetal route functions
 router.get("/resettlement-planning/:personId/:pageName", function(req, res, next){

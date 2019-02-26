@@ -41,11 +41,7 @@ $govuk-global-styles: true;
 	margin-bottom: govuk-spacing(0)
 }
 
-.ttg__icon {
-
-}
-
-.ttg__icon--print{
-
+.govuk-checkboxes__conditional--error{
+	border-left-color: $govuk-error-colour;
 }
 
