@@ -35,7 +35,7 @@
           {% endif %}
         <form action="register-2" method="post" novalidate>
             <h1 class="govuk-heading-xl">
-                Set a new password
+                Create a new password
               </h1>
             <div class="govuk-inset-text">
               <h2 class="govuk-heading-m">Your password should:</h2>
@@ -46,7 +46,7 @@
             </div>
             <div class="govuk-form-group {{'govuk-form-group--error' if invalidLogin}}">
                 <label class="govuk-label" for="event-name">
-                    Enter Password
+                    Enter password
                 </label>
                 {% if invalidLogin %}
                 <span id="passport-issued-error" class="govuk-error-message">
@@ -57,7 +57,7 @@
             </div>
             <div class="govuk-form-group {{'govuk-form-group--error' if invalidLogin}}">
                 <label class="govuk-label" for="event-name">
-                    Confirm Password
+                    Re-type password
                 </label>
                 {% if invalidLogin %}
                 <span id="passport-issued-error" class="govuk-error-message">
