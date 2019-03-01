@@ -45,3 +45,21 @@ $govuk-global-styles: true;
 	border-left-color: $govuk-error-colour;
 }
 
+a[href="#"]{
+	@extend .govuk-link--no-visited-state;
+}
+
+.summary-link {
+	color: $govuk-link-colour !important;
+	@extend .govuk-link;
+
+	&:focus {
+		background-color: transparent;
+	}
+}
+
+
+details > summary {
+	cursor: pointer;
+}
+

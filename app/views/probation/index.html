@@ -34,31 +34,114 @@
         {{serviceName}}
       </h1>
 
-      <div class="prisoner__section">
-        <h2 class="prisoner__heading govuk-heading-m">My convictions</h2>
-        <p>Spent and unspent convictions</p>
-        <p><a class="govuk-button govuk-button--secondary" href="/probation/convictions" title="">Show my convictions</a>
-      </div>
 
-      <div class="prisoner__section">
-        <h2 class="prisoner__heading govuk-heading-m">Find a GP</h2>
-        <p>9 GPs near you are accepting new patients</p>
-        <p><a class="govuk-button govuk-button--secondary" href="/probation/gp" title="">View GPs</a>
-      </div>
-
-      <div class="prisoner__section">
-        <h2 class="prisoner__heading govuk-heading-m">Benefits</h2>
-        <p>How to claim benefits and get help</p>
-        <p><a class="govuk-button govuk-button--secondary" href="/probation/benefits" title="">Find out about benefits</a>
-      </div>
+      <h2 class="govuk-heading-l">As soon as possible after release </h2>
 
 
-    </div>
+      
+      <details>
+        <summary class="govuk-heading-s summary-link">Register at a local GP
+        </summary>
+        <p class="govuk-body" id="gp-details">It usually takes 2 weeks to register at a GP, but this can take longer at some GPs. You will need to be registered to make an appointment or get medication.</p>
+        <ul class="govuk-list">
+          <li><a class="gov-uk-link" href="/probation/gp">Find a gp near me</a></li>
+        </ul>
+
+      </details>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      
+      <details>
+        <summary class="govuk-heading-s summary-link">Get proof of ID</summary>
+      <p class="govuk-body">You will need proof of ID to apply for benefits and to register at a GP. </p>
+      <ul class="govuk-list">
+        <li><a class="gov-uk-link" href="#">How to get Proof of ID</a></li>
+        <li><a class="gov-uk-link" href="#">What proof of ID do I need?</a></li>
+      </ul>
+    </details>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <details>
+        <summary class="govuk-heading-s summary-link">Apply for benefits</summary>
+
+      <p class="govuk-body">You are living in Sheffield, which means you can apply for Universal Credit. 
+        This replaces several benefits:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Child Tax Credit.</li>
+          <li>Housing Benefit.</li>
+          <li>Income Support.</li>
+          <li>income-based Jobseeker's Allowance (JSA)</li>
+          <li>income-related Employment and Support Allowance (ESA)</li>
+          <li>Working Tax Credit.</li>
+        </ul>
+      <p class="govuk-body">You can get help applying for benefits at a local job centre. </p>
+      <ul class="govuk-list">
+        <li><a class="gov-uk-link" href="#">How to apply for Universal credit</a></li>
+        <li><a class="gov-uk-link" href="#">Find a job centre</a></li>
+      </ul>
+    </details>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Your probation terms</h2>
+
+      <details>
+        <summary class="govuk-heading-s summary-link">Your Licence conditions</summary>
+      
+      <p class="govuk-body">You must stick to your licence conditions to stay out of prison.</p>
+
+      <ul class="govuk-list">
+        <li><a href="#">View your release licence conditions</a></li>
+        <li><a href="#">What do my licence conditions mean?</a></li>
+      </ul>
+      </details>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <details>
+        <summary class="govuk-heading-s summary-link">Meeting your probation officer</summary>
+      
+      <p class="govuk-body">You must attend regular meetings with your probation offi er.</p>
+
+      </details>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <h2 class="govuk-heading-l govuk-!-margin-top-9">Finding work and housing</h2>
+
+
+      <details>
+        <summary class="govuk-heading-s summary-link">Help finding work</summary>
+      
+      <p class="govuk-body">Once you have sorted the basics, you can focus on getting your life back on track.</p>
+
+      <ul class="govuk-list">
+        <li><a href="#">Write a CV</a></li>
+        <li><a href="#">Declaring you criminal convictions</a></li>
+        <li><a href="#">Applying for a job</a></li>
+      </ul>
+      </details>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <details>
+        <summary class="govuk-heading-s summary-link">Finding somewhere to live</summary>
+      
+      <p class="govuk-body">If you're staying in hostel, it's important to find somewhere stablet to live long term.</p>
+
+      <ul class="govuk-list">
+        <li><a href="#">Contact your local council</a></li>
+        <li><a href="#">Declaring you criminal convictions</a></li>
+        <li><a href="#">Applying for a job</a></li>
+      </ul>
+
+
+      </details>
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
 
     <div class="govuk-grid-column-one-third">
-
+<!--
       {% include "probation/_profile.html" %}
-
+-->
     </div>
   </div>
 {% endblock %}
