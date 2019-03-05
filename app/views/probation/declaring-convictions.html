@@ -1,0 +1,48 @@
+{% extends "probation/layout.html" %}
+
+{% block pageTitle %}
+  My convictions
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="https://www.gov.uk">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="">Her Majesty’s Prison & Probation Service</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="/prisoner">{{serviceName}}</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link">My convictions</a>
+      </li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+        Declaring you criminal convictions
+      </h1>
+    <p>You need to declare your convictions when applying for work. </p>
+
+    <h2 class="govuk-heading-m">Spent convictions</h2>
+    <p>Spent convictions are...</p>
+
+    <h2 class="govuk-heading-m">Unspent convictions</h2>
+    <p>Unspent convictions are...</p>
+    </div>
+    <div class="govuk-grid-column-one-third">
+    </div>
+</div>
+{% endblock %}
