@@ -1,0 +1,69 @@
+n{% extends "resettlement-planning/layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block content %}
+  
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+<h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Other details</h1>
+    <form action="b79-3" method="post" accept-charset="utf-8">
+      
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="nino">
+          National Insurance Number
+        </label>
+        <span id="nino-hint" class="govuk-hint">
+          For example, ‘QQ 12 34 56 C’
+        </span>
+        <input class="govuk-input govuk-input--width-10" id="nino" 
+        name="nino" 
+        value="{{data['nino']}}"
+        type="text" aria-describedby="nino-hint">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="release-money">
+          Amount of release money 
+        </label>
+        <span id="release-money-hint" class="govuk-hint">
+          For example, 24.50
+        </span>
+        <span class="govuk-body ttg-input-prefix">&pound;</span>
+        <input class="govuk-input govuk-input--width-5" id="release-money" 
+        name="release-money" 
+        value="{{data['release-money']}}"
+        type="number" aria-describedby="release-money-hint">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="other-money">
+          Amount of other money on release 
+        </label>
+
+        <span id="other-money-hint" class="govuk-hint">
+          For example, 24.50
+        </span>
+        <span class="govuk-body ttg-input-prefix">&pound;</span>
+        <input class="govuk-input govuk-input--width-5" id="other-money" 
+        name="other-money" 
+        value="{{data['other-money']}}"
+        type="number" aria-describedby="other-money-hint">
+      </div>
+
+      <button class="govuk-button">Continue</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
