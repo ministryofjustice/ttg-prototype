@@ -1,4 +1,4 @@
-n{% extends "resettlement-planning/layout.html" %}
+{% extends "resettlement-planning/layout.html" %}
 
 {% block pageTitle %}
 {% endblock %}
@@ -64,7 +64,7 @@ n{% extends "resettlement-planning/layout.html" %}
               National Insurance Number
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data.nino}}
+              {{data.b79.nino}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -84,11 +84,11 @@ n{% extends "resettlement-planning/layout.html" %}
               Jobcentre address
             </dt>
             <dd class="govuk-summary-list__value">
-            {{person['b79-address-line-1']}} <br>
-            {{person['b79-address-line-2']}} <br>
-            {{person['b79-address-town']}} <br>
-            {{person['b79-address-county']}} <br>
-            {{person['b79-address-postcode']}} 
+            {{data.b79['address-line-1']}} <br>
+            {{data.b79['address-line-2']}} <br>
+            {{data.b79['address-town']}} <br>
+            {{data.b79['address-county']}} <br>
+            {{data.b79['address-postcode']}} 
 
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -105,7 +105,7 @@ n{% extends "resettlement-planning/layout.html" %}
               Release Money
             </dt>
             <dd class="govuk-summary-list__value">
-            &pound;{{person['release-money']}}
+            &pound;{{data.b79['release-money']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
@@ -119,7 +119,7 @@ n{% extends "resettlement-planning/layout.html" %}
               Other money on release
             </dt>
             <dd class="govuk-summary-list__value">
-            &pound;{{person['other-money']}}
+            &pound;{{data.b79['other-money']}}
             
             </dd>
             <dd class="govuk-summary-list__actions">

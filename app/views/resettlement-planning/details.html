@@ -54,10 +54,10 @@
 				{% endif %}
 			</li>
 			<li class="app-task-list__item">
-				<a class="app-task-list__task-name govuk-link--no-visited-state" href="work">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="{{ 'work' if not person.b79.complete}}{{ 'b79-complete' if person.b79.complete}}">
 					Work and benefits
 				</a>
-				{% if person.hasWork %}
+				{% if person.hasWork == "yes" or person.b79 %}
 				<strong class="govuk-tag app-task-list__task-completed" id="work-completed">Completed</strong>
 				{% endif %}
 				

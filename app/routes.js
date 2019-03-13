@@ -191,6 +191,15 @@ router.post("/resettlement-planning/:personId/proof-of-id", function(req, res, n
 });
 
 
+router.post("/resettlement-planning/:personId/b79-complete", function(req, res, next){
+	res.locals.person.b79 = req.session.data.b79;
+	res.locals.person.b79.complete = true;
+
+	delete req.session.data.b79;
+	next();
+});
+
+
 //sign in routes
 router.all("/authentication/users", function(req, res, next){
 	res.locals.users = require("../app/data/users.js");

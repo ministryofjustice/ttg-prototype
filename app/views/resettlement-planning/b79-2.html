@@ -28,8 +28,8 @@ n{% extends "resettlement-planning/layout.html" %}
           For example, ‘QQ 12 34 56 C’
         </span>
         <input class="govuk-input govuk-input--width-10" id="nino" 
-        name="nino" 
-        value="{{data['nino']}}"
+        name="b79[nino]" 
+        value="{{data.b79['nino']}}"
         type="text" aria-describedby="nino-hint">
       </div>
 
@@ -42,9 +42,9 @@ n{% extends "resettlement-planning/layout.html" %}
         </span>
         <span class="govuk-body ttg-input-prefix">&pound;</span>
         <input class="govuk-input govuk-input--width-5" id="release-money" 
-        name="release-money" 
-        value="{{data['release-money']}}"
-        type="number" aria-describedby="release-money-hint">
+        name="b79[release-money]" 
+        value="{{data.b79['release-money']}}"
+        type="number" STEP="0.01" aria-describedby="release-money-hint">
       </div>
 
       <div class="govuk-form-group">
@@ -57,9 +57,9 @@ n{% extends "resettlement-planning/layout.html" %}
         </span>
         <span class="govuk-body ttg-input-prefix">&pound;</span>
         <input class="govuk-input govuk-input--width-5" id="other-money" 
-        name="other-money" 
-        value="{{data['other-money']}}"
-        type="number" aria-describedby="other-money-hint">
+        name="b79[other-money]" 
+        value="{{data.b79['other-money']}}"
+        type="number" STEP="0.01" aria-describedby="other-money-hint">
       </div>
 
       <button class="govuk-button">Continue</button>

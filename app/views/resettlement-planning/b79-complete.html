@@ -1,0 +1,37 @@
+{% extends "resettlement-planning/layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block content %}
+  
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+<h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Print B79 form</h1>
+
+      <p class="ttg-print">
+            <a class="ttg-print__link" href="/public/PDF/b79.pdf" title="" target="_blank">
+            <i class="ttg-print__icon"></i>
+            <span class="ttg-print__link-description">Print B79 form</span></a>
+        </p>
+       <a href="#" title="" class="govuk-button govuk-button--secondary">Edit details</a>
+        <div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+

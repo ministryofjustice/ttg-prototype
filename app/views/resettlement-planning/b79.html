@@ -46,8 +46,8 @@ n{% extends "resettlement-planning/layout.html" %}
       <span class="govuk-visually-hidden">line 1 of 2</span>
     </label>
     <input class="govuk-input" id="address-line-1" 
-    name="b79-address-line-1"
-    value="{{data['b79-address-line-1']}}" 
+    name="b79[address-line-1]"
+    value="{{data.b79['address-line-1']}}" 
     type="text">
   </div>
 
@@ -56,8 +56,8 @@ n{% extends "resettlement-planning/layout.html" %}
       <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
     </label>
     <input class="govuk-input" id="address-line-2" 
-    name="b79-address-line-2"
-    value="{{data['b79-address-line-2']}}" 
+    name="b79[address-line-2]"
+    value="{{data.b79['address-line-2']}}" 
     type="text">
   </div>
 
@@ -66,8 +66,8 @@ n{% extends "resettlement-planning/layout.html" %}
       Town or city
     </label>
     <input class="govuk-input govuk-!-width-two-thirds" id="address-town" 
-    name="b79-address-town"
-    value="{{data['b79-address-town']}}" 
+    name="b79[address-town]"
+    value="{{data.b79['address-town']}}" 
     type="text">
   </div>
 
@@ -76,8 +76,8 @@ n{% extends "resettlement-planning/layout.html" %}
       County
     </label>
     <input class="govuk-input govuk-!-width-two-thirds" id="address-county" 
-    name="b79-address-county"
-    value="{{data['b79-address-county']}}" 
+    name="b79[address-county]"
+    value="{{data.b79['address-county']}}" 
     type="text">
   </div>
 
@@ -86,8 +86,8 @@ n{% extends "resettlement-planning/layout.html" %}
       Postcode
     </label>
     <input class="govuk-input govuk-input--width-10" id="address-postcode" 
-    name="b79-address-postcode"
-    value="{{data['b79-address-postcode']}}" 
+    name="b79[address-postcode]"
+    value="{{data.b79['address-postcode']}}" 
     type="text">
   </div>
 

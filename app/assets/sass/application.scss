@@ -35,6 +35,10 @@ $govuk-global-styles: true;
 	&:hover {
 		background-color: govuk-colour("grey-2");
 	}
+
+	&:focus {
+		background-color: govuk-colour("grey-3");
+	}
 }
 
 .govuk-button--nospacing{
