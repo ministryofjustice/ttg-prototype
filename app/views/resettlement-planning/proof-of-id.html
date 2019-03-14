@@ -17,37 +17,25 @@
 <h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
 
-<h1 class="govuk-heading-xl">Proof of Identification</h1>
-<p>Proof of identification is needed for benefits claims and registering at a GP.</p>
 
-<h2 class="govuk-heading-m">Form B79</h2>
-<p>This can be issued by prisons to give to a local job centre to help with a benefits claim.</p>
-<p><a href="b79">Print B79 for for {{person.name.first}}</a></p>
-
-<h2 class="govuk-heading-m">Drivers licence</h2>
-<p>It is free to change the address on a drivers licence, as long as no other details or the photo are changing.</p>
-<p><a href="https://www.gov.uk/change-address-driving-licence" target="_blank">Change licence address on DVLA website</a></p>
-
-<!--
-{% if not person.hasId %}
-<form action="" method="post" novalidate>
+<form action="proof-of-id-2" method="post" novalidate>
     <div class="govuk-form-group govuk-form-group">
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-        Does {{person.name.first}} have any proof of identification?
+        Does {{person.name.first}} have a drivers licence?
       </h1>
             </legend>
             <div class="govuk-radios govuk-radios--inline" data-module="radios">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="has-id-1" name="has-id" type="radio" value="yes">
-                    <label class="govuk-label govuk-radios__label" for="has-id-1">
+                    <input class="govuk-radios__input" id="id[drivers-licence]-1" name="id[drivers-licence]" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="id[drivers-licence]-1">
                         Yes
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="has-id-2" name="has-id" type="radio" value="no">
-                    <label class="govuk-label govuk-radios__label" for="has-id-2">
+                    <input class="govuk-radios__input" id="id[drivers-licence]-2" name="id[drivers-licence]" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="id[drivers-licence]-2">
                         No
                     </label>
                 </div>
@@ -59,12 +47,6 @@
     </button>
 </form>
 
-{% elseif person.hasId == "no" %}
 
-<h2 class="govuk-heading-l">How to get proof of identification</h2>
-
-{% endif %}
-
--->
 
 {% endblock %}

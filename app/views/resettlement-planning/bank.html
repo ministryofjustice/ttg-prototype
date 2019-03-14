@@ -50,6 +50,10 @@
 
 <h2 class="govuk-heading-l">How to get a bank account</h2>
 
+{% elseif person.hasBank == "yes" %}
+
+<h2 class="govuk-heading-l">Change bank account address</h2>
+
 {% endif %}
         
 {% endblock %}

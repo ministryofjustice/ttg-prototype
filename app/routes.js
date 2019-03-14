@@ -181,12 +181,9 @@ router.post("/resettlement-planning/:personId/bank", function(req, res, next){
 
 //ID routes
 
-router.post("/resettlement-planning/:personId/proof-of-id", function(req, res, next){
-	res.locals.person.hasId = req.body["has-id"];
+router.post("/resettlement-planning/:personId/proof-of-id-2", function(req, res, next){
 
-	if(req.body["has-id"] == "yes"){
-		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
-	}
+
 	next();
 });
 
