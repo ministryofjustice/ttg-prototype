@@ -48,7 +48,23 @@
 
 {% elseif person.hasBank == "no" %}
 
-<h2 class="govuk-heading-l">How to get a bank account</h2>
+		<h2 class="govuk-heading-l">Arrange a basic bank account</h2>
+		<p class="govuk-body-l">Use this service to print a pre-completed form for approval and posting to the bank.</p>
+			<p>A bank account is needed to claim Universal Credit. A basic bank account allows:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>wages, benefits and tax credits to be paid in</li>
+				<li>money to be taken out out at Post Offices and cash machines</li>
+				<li>cheques to be paid in</li>
+				<li>bills to be paid by direct debit</li>
+			</ul>
+			<p>
+			<div class="govuk-warning-text">
+			<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+			<strong class="govuk-warning-text__text">
+			<span class="govuk-warning-text__assistive">Warning</span>
+			{{person.name.first}} will need to confirm their address with the bank within 7 days of release.
+			</strong>
+				
 
 {% endif %}
         
