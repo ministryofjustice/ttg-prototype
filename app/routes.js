@@ -6,13 +6,7 @@ const request = require('request');
 
 // Add your routes here - above the module.exports line
 
-let cases;
-
-request('https://my.api.mockaroo.com/prisoners.json?key=4f785100', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    cases = JSON.parse(body);
-  }
-})
+let cases = require("../app/data/prisoners.js");
 
 
 router.all("*", function(req, res, next){
