@@ -1,0 +1,32 @@
+{% extends "resettlement-planning/layout.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block content %}
+  
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+
+<h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
+<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
+
+
+{% if data.id["drivers-licence"] == "yes" %}
+
+<h1 class="govuk-heading-l">Ordering a replacement drivers licence</h1>
+
+{% else %}
+
+<h1 class="govuk-heading-l">Ordering a Citizencard</h1>
+
+{% endif %}
+
+
+{% endblock %}

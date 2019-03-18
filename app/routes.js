@@ -6,13 +6,7 @@ const request = require('request');
 
 // Add your routes here - above the module.exports line
 
-let cases;
-
-request('https://my.api.mockaroo.com/prisoners.json?key=4f785100', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    cases = JSON.parse(body);
-  }
-})
+let cases = require("../app/data/prisoners.js");
 
 
 router.all("*", function(req, res, next){
@@ -181,12 +175,9 @@ router.post("/resettlement-planning/:personId/bank", function(req, res, next){
 
 //ID routes
 
-router.post("/resettlement-planning/:personId/proof-of-id", function(req, res, next){
-	res.locals.person.hasId = req.body["has-id"];
+router.post("/resettlement-planning/:personId/proof-of-id-2", function(req, res, next){
 
-	if(req.body["has-id"] == "yes"){
-		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
-	}
+
 	next();
 });
 
