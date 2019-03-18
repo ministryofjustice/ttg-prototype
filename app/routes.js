@@ -200,8 +200,13 @@ router.post("/resettlement-planning/:personId/bank", function(req, res, next){
 
 //ID routes
 
-router.post("/resettlement-planning/:personId/proof-of-id-2", function(req, res, next){
-
+router.post("/resettlement-planning/:personId/primary-id", function(req, res, next){
+	if(req.body.id['primary-id'] == "yes"){
+		res.locals.person.primaryIdComplete = true;
+		res.redirect(`/resettlement-planning/${req.params.personId}/benefits-checklist`)
+	} else {
+		res.redirect(`/resettlement-planning/${req.params.personId}/proof-of-id-2`)
+	}
 
 	next();
 });
@@ -210,7 +215,6 @@ router.post("/resettlement-planning/:personId/proof-of-id-2", function(req, res,
 router.post("/resettlement-planning/:personId/b79-complete", function(req, res, next){
 	res.locals.person.b79 = req.session.data.b79;
 	res.locals.person.b79.complete = true;
-
 	delete req.session.data.b79;
 	next();
 });

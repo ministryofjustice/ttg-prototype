@@ -1,0 +1,66 @@
+{% extends "resettlement-planning/layout-prisoner.html" %}
+
+{% block pageTitle %}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+
+{% block maincontent %}
+  
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+		<p>{{person.name.first}} will be released to {{person.address.city}} Which is in a Universal Credit area. To make a claim, they will need:</p>
+
+		<ul class="app-task-list__items">
+			
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="primary-id">
+					Primary Identification
+				</a>
+				{% if person.primaryIdComplete %}
+				<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+				{% endif %}
+			</li>
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="secondary-id">
+					Secondary Identification
+				</a>
+				{% if person.secondaryId %}
+				<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+				{% endif %}
+			</li>
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" 
+				{% if person.email %}
+					href="email-2"
+				{% else %}
+					href="email"
+				{% endif %}>
+					Email address
+				</a>
+				{% if person.email %}
+				<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+				{% endif %}
+			</li>
+
+			<li class="app-task-list__item">
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="bank">
+					Bank account
+				</a>
+				{% if person.hasBank == "yes" %}
+				<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+				{% endif %}
+			</li>
+
+		</ul>
+	</div>
+</div>
+        
+{% endblock %}

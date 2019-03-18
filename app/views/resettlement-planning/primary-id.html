@@ -17,25 +17,25 @@
 <h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
 
-{% if not person.hasWork %}
-<form action="/resettlement-planning/{{person.index}}/work" method="post" novalidate>
-    <div class="govuk-form-group">
+<form action="primary-id" method="post" novalidate>
+    <div class="govuk-form-group govuk-form-group">
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-        Will {{person.name.first}} have employment when they leave prison?
+        Does {{person.name.first}} have at least 1 item of primary ID?
       </h1>
             </legend>
+            <p>Please see the DWP's <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/704327/acceptable-id-checklist.pdf">list of acceptable ID</a>.</p>
             <div class="govuk-radios govuk-radios--inline" data-module="radios">
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="has-work-1" name="has-work" type="radio" value="yes" data-aria-controls="conditional-has-work-1">
-                    <label class="govuk-label govuk-radios__label" for="has-work-1">
+                    <input class="govuk-radios__input" id="id[primary-id]-1" name="id[primary-id]" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="id[primary-id]-1">
                         Yes
                     </label>
                 </div>
                 <div class="govuk-radios__item">
-                    <input class="govuk-radios__input" id="has-work-2" name="has-work" type="radio" value="no" data-aria-controls="conditional-has-work-2">
-                    <label class="govuk-label govuk-radios__label" for="has-work-2">
+                    <input class="govuk-radios__input" id="id[primary-id]-2" name="id[primary-id]" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="id[primary-id]-2">
                         No
                     </label>
                 </div>
@@ -47,12 +47,6 @@
     </button>
 </form>
 
-{% else %}
-
-
-    <p>{{person.name.first}} will {{ 'not' if person.hasWork == "no"}} be employed when they leave prison (<a href="#" class="govuk" title="">change</a>) </p>
-
-{% endif %}
 
 
 {% endblock %}

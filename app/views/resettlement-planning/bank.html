@@ -16,14 +16,25 @@
 
 <h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
+{% if not person.hasAddress %}
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    {{person.name.fist}} will need an address to apply for a bank account
+  </strong>
+</div>
+    <p class="govuk-body"><a class="govuk-link" href="housing">Add an address</a></p>
+{% else %}
+
 {% if not person.hasBank %}
 <form action="/resettlement-planning/{{person.index}}/bank" method="post" novalidate>
     <div class="govuk-form-group govuk-form-group">
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-        Does {{person.name.first}} have a bank account?
-      </h1>
+                Does {{person.name.first}} have a bank account?
+              </h1>
             </legend>
             <div class="govuk-radios govuk-radios--inline" data-module="radios">
                 <div class="govuk-radios__item">
@@ -74,5 +85,5 @@
                 
 
 {% endif %}
-        
+{% endif %}
 {% endblock %}
