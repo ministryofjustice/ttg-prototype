@@ -30,16 +30,43 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-<h1 class="govuk-heading-xl">Sign up an email account</h1>
+<h1 class="govuk-heading-xl">Set up an email account</h1>
 
-		<p>You will need to sign {{person.name.first}} up for a free email account with one of the following providers:</p>
-		<ul class="govuk-list">
+		<p class="govuk-body-l">Set up an account for {{person.name.first}} using an email provider's website. Once you've done that, record the email address and password below.</p>
+		
+		<details>
+        <summary class="govuk-heading-s summary-link">How do I choose an email provider?</summary>
+		<p>Popular email providers are:</p>
+		<ul class="govuk-list govuk-list--bullet">
 		    <li><a href="https://gmail.com" class="govuk-link" target="blank">Gmail</a></li>
 		    <li><a href="https://outlook.live.com/" class="govuk-link" target="blank">Outlook</a></li>
 		    <li><a href="https://login.yahoo.com/account/create" class="govuk-link" target="blank">Yahoo</a></li>
 		</ul>
-		<p>Email address and password will be given to {{person.name.first}} when they leave prison.</p>
-		<form action="" method="post" accept-charset="utf-8">
+      </details>
+	  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+		 <details>
+        <summary class="govuk-heading-s summary-link">How do I choose an email address?</summary>
+		<p>Use this format for the email address: 
+		<ul class="govuk-list govuk-list--bullet">
+		<li><span class="govuk-body govuk-!-font-weight-bold">forename.surname@provider.com</span></li> 
+		</ul>
+		<P>If that address isn't available, try adding their year of birth to the address:<p>
+		<ul class="govuk-list govuk-list--bullet">
+		<li><span class="govuk-body govuk-!-font-weight-bold">forename.surname1980@provider.com</span></li>
+		</ul>
+		<p>If that's not available either, try their date of birth:</p>
+		<ul class="govuk-list govuk-list--bullet">
+		<li><span class="govuk-body govuk-!-font-weight-bold">forename.surname120280@provider.com</span></li>
+		</ul>
+      </details>
+	  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+	  <details>
+        <summary class="govuk-heading-s summary-link">How do I choose a temporary password?</summary>
+		<p> Use a phrase consisting of three unconnected words. Make sure you remember this until you have completed the field below.</p>
+      </details>
+	  <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+			
+		<!-- <form action="" method="post" accept-charset="utf-8">
 		    <div class="govuk-form-group">
 		        <fieldset class="govuk-fieldset">
 		            <legend class="govuk-fieldset__legend govuk-label govuk-label--m">
@@ -66,7 +93,7 @@
 		                </div>
 		            </div>
 		        </fieldset>
-		    </div>
+		    </div>-->
 		    <div class="govuk-form-group">
 		        <label class="govuk-label govuk-label--m" for="email">
 		            Email address
@@ -80,9 +107,21 @@
 		        </label>
 		        <input class="govuk-input" id="password" name="password" type="text">
 		    </div>
+			
+				
+					<p>
+					<div class="govuk-warning-text">
+						<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+						<strong class="govuk-warning-text__text">
+						<span class="govuk-warning-text__assistive">Warning</span>
+					The email address and temporary password will be given to {{person.name.first}} when they leave prison.
+						</strong>
+			</div>
+		</p>
 		    <input type="hidden" name="has-email" value="true">
 		    <button type="submit" class="govuk-button">Save</button>
 		</form>
+
 	</div>
 </div>
 
