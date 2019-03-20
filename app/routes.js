@@ -11,6 +11,11 @@ let cases = require("../app/data/prisoners.js");
 
 router.all("*", function(req, res, next){
 	res.locals.query = req.query;
+
+	const users = require("../app/data/users.js");
+	if(!req.session.data.user){
+		req.session.data.user = users[0];
+	}
 	next();
 });
 
@@ -31,6 +36,7 @@ router.get("/resettlement-planning", function(req, res, next){
 	next();
 });
 
+
 //gp routes
 
 router.get("/resettlement-planning/:personId/gp", function(req, res, next){
@@ -44,6 +50,8 @@ router.get("/resettlement-planning/:personId/gp", function(req, res, next){
 		next();
 	}
 })
+
+
 
 router.get("/probation/gp", function(req, res, next){
 	
