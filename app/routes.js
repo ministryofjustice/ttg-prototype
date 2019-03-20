@@ -201,14 +201,15 @@ router.all("/authentication/users", function(req, res, next){
 
 router.post("/authentication/register", function(req, res, next){
 	const users = require("../app/data/users.js");
-	let user = users.filter(user => user.login.username == req.body.username);
-	console.log(user)
+	let user = users.filter(user => user.login.username == req.body.username)[0];
+	console.log(user);
 
 	if(user.length === 0){
 		res.locals.invalidLogin = true;
 		res.render("authentication/register");
 	} else {
-		if(user[0].login.password === req.body.password){
+		if(user.login.password === req.body.password){
+			req.session.data.user = user;
 			res.redirect(`/authentication/register-2`);		
 		} else {
 			res.locals.invalidLogin = true;

@@ -4,10 +4,6 @@
   {{serviceName}}
 {% endblock %}
 
-{% block header %}
-  <!-- Blank header with no service name for the start page -->
-  {{ govukHeader() }}
-{% endblock %}
 
 {% block beforeContent %}
 <div class="govuk-breadcrumbs">
@@ -136,12 +132,11 @@
 
       </details>
       <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-    <div class="govuk-grid-column-one-third">
-<!--
-      {% include "probation/_profile.html" %}
--->
-    </div>
   </div>
+  <div class="govuk-grid-column-one-third">
+
+      {% include "probation/_profile.html" %}
+
+    </div>
+</div>
 {% endblock %}

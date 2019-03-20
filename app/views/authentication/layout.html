@@ -29,9 +29,19 @@
 {% endblock %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  Help Leaving Prison
 {% endblock %}
 
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "Help Leaving Prison",
+    serviceUrl: "/probation",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
 
 {% block content %}
 {% endblock %}
