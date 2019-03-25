@@ -1,6 +1,4 @@
-module.exports = [
-
-{
+module.exports = [{
         "gender": "male",
         "name": {
             "title": "mr",
@@ -22,7 +20,9 @@ module.exports = [
             }
         },
         "email": "jordan.henry@gmail.com",
+        "existingUser": false,
         "login": {
+            
             "uuid": "b23f3ee0-75ef-47cc-ac9f-cd6eee49dba4",
             "username": "jordan.henry",
             "password": "truck butter",
@@ -40,7 +40,7 @@ module.exports = [
             "age": 2
         },
         "phone": "011-359-3614",
-        "cell": "081-847-0669",
+        "mobile": "07818 470 669",
         "id": {
             "name": "PPS",
             "value": "9247641T"
@@ -74,7 +74,9 @@ module.exports = [
             }
         },
         "email": "nina.martin@gmail.com",
+        "existingUser": false,
         "login": {
+            
             "uuid": "3e00598e-ee95-43fc-83cc-ad8f22786bbc",
             "username": "nina.martin",
             "password": "method tries",
@@ -92,7 +94,7 @@ module.exports = [
             "age": 4
         },
         "phone": "(236)-211-9924",
-        "cell": "(019)-872-4972",
+        "mobile": "07198 724 972",
         "id": {
             "name": "AVS",
             "value": "756.6556.6208.70"
@@ -103,4 +105,115 @@ module.exports = [
             "thumbnail": "https://randomuser.me/api/portraits/thumb/women/1.jpg"
         },
         "nat": "CH"
-    }]
+    },
+  {
+    "gender": "female",
+    "name": {
+      "title": "ms",
+      "first": "ava",
+      "last": "jones"
+    },
+    "location": {
+      "street": "1448 regent ave",
+      "city": "odessa",
+      "state": "new brunswick",
+      "postcode": "S1T 1O4",
+      "coordinates": {
+        "latitude": "59.3730",
+        "longitude": "-29.5684"
+      },
+      "timezone": {
+        "offset": "-1:00",
+        "description": "Azores, Cape Verde Islands"
+      }
+    },
+    "email": "ava.jones@gmail.com",
+    "existingUser": true,
+    "login": {
+        
+      "uuid": "3bab6d3e-463e-4487-ad2a-231bf51468e4",
+      "username": "ava.jones",
+      "password": "factory healthy",
+      "salt": "Nvm806Cj",
+      "md5": "e67be4bff32b02e6a5461f18af6c799c",
+      "sha1": "67c14358c66454e09367b4e4a878d5daf5228353",
+      "sha256": "c7b1150bfa536043f663b83d06cd63777f3c0b363ed1589afbad88b415e8780c"
+    },
+    "dob": {
+      "date": "1964-03-08T09:57:30Z",
+      "age": 55
+    },
+    "registered": {
+      "date": "2008-03-10T16:52:13Z",
+      "age": 11
+    },
+    "phone": "962-362-8449",
+    "mobile": "07611 936 865",
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/69.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/69.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/69.jpg"
+    },
+    "nat": "CA"
+  },
+  {
+    "gender": "male",
+    "name": {
+      "title": "mr",
+      "first": "victor",
+      "last": "taylor"
+    },
+    "location": {
+      "street": "4069 3rd st",
+      "city": "belmont",
+      "state": "saskatchewan",
+      "postcode": "U2S 0W8",
+      "coordinates": {
+        "latitude": "38.3479",
+        "longitude": "-67.6592"
+      },
+      "timezone": {
+        "offset": "+8:00",
+        "description": "Beijing, Perth, Singapore, Hong Kong"
+      }
+    },
+    "email": "victor.taylor@gmail.com",
+    "existingUser": true,
+    "login": {
+        
+      "uuid": "7ba4862f-ffd7-4213-a13e-ed610de0584d",
+      "username": "victor.taylor",
+      "password": "inputs holder",
+      "salt": "dwIsYXhf",
+      "md5": "42c59eb29f83cb81822a760a9df1c97f",
+      "sha1": "16d5b1f377fb596c1e0f1cd09f70fe9665e87aa8",
+      "sha256": "208ad463e7afc0b576b7c2f4f6e3bd15ed5821b980f4457d30bb6945e19bba8a"
+    },
+    "dob": {
+      "date": "1983-09-30T05:56:27Z",
+      "age": 35
+    },
+    "registered": {
+      "date": "2004-04-10T02:15:40Z",
+      "age": 14
+    },
+    "phone": "196-433-3196",
+    "mobile": "07705 351 312",
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/men/92.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/men/92.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/men/92.jpg"
+    },
+    "nat": "CA"
+  }
+];
+
+

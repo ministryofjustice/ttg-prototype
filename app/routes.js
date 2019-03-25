@@ -207,23 +207,28 @@ router.all("/authentication/users", function(req, res, next){
 });
 
 
-router.post("/authentication/register", function(req, res, next){
-	const users = require("../app/data/users.js");
-	let user = users.filter(user => user.login.username == req.body.username)[0];
-	console.log(user);
+router.post("/authentication/sign-in", function(req, res, next){
+	const users = require("../app/data/users.js")
+		.filter(user => user.login.username == req.body.username || user.email == req.body.username || user.mobile == req.body.username)
+		console.log(users);
 
-	if(user.length === 0){
+	if(users.length === 0){
 		res.locals.invalidLogin = true;
-		res.render("authentication/register");
+		res.render("authentication/sign-in");
 	} else {
-		if(user.login.password === req.body.password){
-			req.session.data.user = user;
-			res.redirect(`/authentication/register-2`);		
-		} else {
+		if(users[0].login.password !== req.body.password){
 			res.locals.invalidLogin = true;
-			res.render("authentication/register");}
+			res.render("authentication/sign-in");
+		} else {
+			req.session.data.user = users[0];
+			
+			if(users[0].existingUser){
+				res.redirect(`/probation`);			
+			} else {
+				res.redirect(`/authentication/register-2`);		
+			}
+		}
 	}
-
 
 });
 
