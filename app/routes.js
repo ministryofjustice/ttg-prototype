@@ -166,10 +166,9 @@ router.post("/resettlement-planning/:personId/email-2", function(req, res, next)
 	res.locals.person.emailProvider = req.body["email-provider"];
 	res.locals.person.email = req.body["email"];
 	res.locals.person.emailPassword = req.body["password"];
-	res.locals.person.hasBank = req.body["has-bank"];
 
 	if(req.body["has-email"] == "yes"){
-		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+		res.redirect(`/resettlement-planning/${req.params.personId}/benefits-checklist`)
 	}
 
 	next();
@@ -192,7 +191,7 @@ router.post("/resettlement-planning/:personId/bank", function(req, res, next){
 	res.locals.person.hasBank = req.body["has-bank"];
 
 	if(req.body["has-bank"] == "yes"){
-		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+		res.redirect(`/resettlement-planning/${req.params.personId}/benefits-checklist`)
 	}
 	next();
 });
@@ -206,6 +205,17 @@ router.post("/resettlement-planning/:personId/primary-id", function(req, res, ne
 		res.redirect(`/resettlement-planning/${req.params.personId}/benefits-checklist`)
 	} else {
 		res.redirect(`/resettlement-planning/${req.params.personId}/proof-of-id-2`)
+	}
+
+	next();
+});
+
+router.post("/resettlement-planning/:personId/secondary-id", function(req, res, next){
+	if(req.body.id['secondary-id'] == 2){
+		res.locals.person.secondaryIdComplete = true;
+		res.redirect(`/resettlement-planning/${req.params.personId}/benefits-checklist`)
+	} else {
+		res.redirect(`/resettlement-planning/${req.params.personId}/secondary-id-2`)
 	}
 
 	next();
