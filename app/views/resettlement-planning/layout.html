@@ -50,7 +50,25 @@
 </main>
 
 {% block footer %}
-{% endblock %}
+    {{ govukFooter({
+      meta: {
+        items: [
+          {
+            href: "https://govuk-prototype-kit.herokuapp.com/",
+            text: "GOV.UK Prototype Kit " + releaseVersion
+          },
+          {
+            href: "/prototype-admin/clear-data",
+            text: "Clear data"
+          }, 
+          {
+            href: "/prototype-admin/reset-data",
+            text: "Reset data"
+          }
+        ]
+      }
+    }) }}
+  {% endblock %}
 
 {% block bodyEnd %}
   {% block scripts %}

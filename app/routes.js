@@ -1,15 +1,25 @@
 const express = require('express');
 const router = express.Router();
 const request = require('request');
+const fs = require('fs');
 
 //request.debug = true
 
 // Add your routes here - above the module.exports line
 
-let cases = require("../app/data/prisoners.js");
+let cases; 
+	
+let getCases = function(){
+	fs.readFile(__basedir + "/app/data/prisoners.json", function(err, data){
+		if (err) throw err;
+  		cases = JSON.parse(data);
+	});
+}
 
+getCases();
 
 router.all("*", function(req, res, next){
+
 	res.locals.query = req.query;
 
 	const users = require("../app/data/users.js");
@@ -18,6 +28,13 @@ router.all("*", function(req, res, next){
 	}
 	next();
 });
+
+router.get("/prototype-admin/reset-data", function(req, res, next){
+	getCases();
+	console.log(req.header('Referer'));
+	res.redirect(req.header('Referer'));
+});
+
 
 router.post("/resettlement-planning/:personId/*", function(req, res, next){
 	res.locals.person = cases.filter(person => person.index == req.params.personId)[0];
