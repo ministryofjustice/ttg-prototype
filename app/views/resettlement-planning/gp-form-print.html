@@ -33,9 +33,19 @@
                 </dl>
 
         <p class="ttg-print">
+            {% if person.index == 3 %}
+            <a class="ttg-print__link" href="/public/PDF/GMS1-complete.pdf" title="" target="_blank">
+            {% else %}
             <a class="ttg-print__link" href="https://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf" title="" target="_blank">
+            {% endif %}
+
+
             <i class="ttg-print__icon"></i>
+            {% if person.index == 3 %}
             <span class="ttg-print__link-description">Print registration form</span></a>
+            {% else %}
+            <span class="ttg-print__link-description">Print registration form</span></a>
+            {% endif %}
         </p>
         <div>
         <a href="#" class="govuk-button govuk-button--secondary">Choose a different GP</a></div>
