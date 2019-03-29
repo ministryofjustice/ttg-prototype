@@ -35,7 +35,7 @@
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="benefits-checklist">
 					Benefits
 				</a>
-				{% if person.hasWork == "yes" or person.b79 %}
+				{% if person.benefitsComplete == "yes" or person.b79 %}
 				<strong class="govuk-tag app-task-list__task-completed" id="work-completed">Completed</strong>
 				{% endif %}
 			</li>				

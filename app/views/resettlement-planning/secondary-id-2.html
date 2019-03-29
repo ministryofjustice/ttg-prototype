@@ -9,22 +9,30 @@
 
 {% block content %}
   
-<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+<a href="/resettlement-planning/{{person.index}}/benefits-checklist" class="govuk-back-link">Back</a>
 
 <h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
 <span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
 
+<h2 class="govuk-heading-m">Form B79</h2>
+<p>This can assist Lorry with their benefits claim. It can be used as a secondard proof of ID for their claim.</p>
+<p>This should be completed before release. A member of prison staff will need to stamp and sign this before giving it to Lorry.</p>
+<p><a class="govuk-button" href="b79">Complete B79 form</a></p>
+
+
+{% if data.id['secondary-id'] == 0 %}
 
 
 <h1 class="govuk-heading-l">Secondary ID options</h1>
 
 <h2 class="govuk-heading-m">Birth Certificate</h2>
 <p class="govuk-body">A birth cirtifican can also be used as proof of eligibility to work in the UK.</p>
-<p class="govuk-body">Order a birth cirtificate online</p>
+
 
 <h2 class="govuk-heading-m">Bank statement</h2>
 
 <p class="govuk-body">You can <a class="govuk-link" href="bank">open a bank account</a> for {{person.name.first}} and use a bank statemnt as secondary ID</p>
 
+{% endif %}
 
 {% endblock %}
