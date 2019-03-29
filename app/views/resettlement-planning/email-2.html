@@ -29,62 +29,105 @@
 {% else %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-<h1 class="govuk-heading-xl">Sign up an email account</h1>
-
-		<p>You will need to sign {{person.name.first}} up for a free email account with one of the following providers:</p>
-		<ul class="govuk-list">
-		    <li><a href="https://gmail.com" class="govuk-link" target="blank">Gmail</a></li>
-		    <li><a href="https://outlook.live.com/" class="govuk-link" target="blank">Outlook</a></li>
-		    <li><a href="https://login.yahoo.com/account/create" class="govuk-link" target="blank">Yahoo</a></li>
-		</ul>
-		<p>Email address and password will be given to {{person.name.first}} when they leave prison.</p>
+	<div class="govuk-grid-column-two-thirds">
+		<h1 class="govuk-heading-xl">Set up an email account</h1>
+		<p class="govuk-body">Set up an account for {{person.name.first}} using an email provider's website. Once you've done that, record the email address and password below.</p>
+		
+		<div class="govuk-warning-text">
+							<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+							<strong class="govuk-warning-text__text">
+							<span class="govuk-warning-text__assistive">Warning</span>
+							The email address and temporary password will be given to {{person.name.first}} when they leave prison.
+							</strong>
+						</div>
+		
+		<hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+		
 		<form action="" method="post" accept-charset="utf-8">
-		    <div class="govuk-form-group">
-		        <fieldset class="govuk-fieldset">
-		            <legend class="govuk-fieldset__legend govuk-label govuk-label--m">
-					What email provider have you used?
-		            </legend>
-		            <div class="govuk-radios">
-		                <div class="govuk-radios__item">
-		                    <input class="govuk-radios__input" id="email-provider-1" name="email-provider" type="radio" value="Gmail">
-		                    <label class="govuk-label govuk-radios__label" for="email-provider-1">
-		                        Gmail
-		                    </label>
-		                </div>
-		                <div class="govuk-radios__item">
-		                    <input class="govuk-radios__input" id="email-provider-2" name="email-provider" type="radio" value="Outlook">
-		                    <label class="govuk-label govuk-radios__label" for="email-provider-2">
-		                        Outlook
-		                    </label>
-		                </div>
-		                <div class="govuk-radios__item">
-		                    <input class="govuk-radios__input" id="email-provider-3" name="email-provider" type="radio" value="Yahoo">
-		                    <label class="govuk-label govuk-radios__label" for="email-provider-3">
-		                        Yahoo
-		                    </label>
-		                </div>
-		            </div>
-		        </fieldset>
-		    </div>
-		    <div class="govuk-form-group">
-		        <label class="govuk-label govuk-label--m" for="email">
-		            Email address
-		        </label>
-		        <input class="govuk-input" id="email" name="email" type="text">
-		    </div>
+			<div class="govuk-form-group">
+				<fieldset class="govuk-fieldset">
+					<legend class="govuk-fieldset__legend govuk-label govuk-label--m">
+						What email provider have you used?
+					</legend>
+					<details class="govuk-details">
+					<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">How do I choose an email provider?</span></summary>
+					<div class="govuk-details__text">
+						<p>Popular email providers are:</p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li><a href="https://gmail.com" class="govuk-link" target="blank">Gmail</a></li>
+							<li><a href="https://outlook.live.com/" class="govuk-link" target="blank">Outlook</a></li>
+							<li><a href="https://login.yahoo.com/account/create" class="govuk-link" target="blank">Yahoo</a></li>
+						</ul>
+					</div>
+					</details>
+					<div class="govuk-radios">
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="email-provider-1" name="email-provider" type="radio" value="Gmail">
+							<label class="govuk-label govuk-radios__label" for="email-provider-1">
+								Gmail
+							</label>
+						</div>
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="email-provider-2" name="email-provider" type="radio" value="Outlook">
+							<label class="govuk-label govuk-radios__label" for="email-provider-2">
+								Outlook
+							</label>
+						</div>
+						<div class="govuk-radios__item">
+							<input class="govuk-radios__input" id="email-provider-3" name="email-provider" type="radio" value="Yahoo">
+							<label class="govuk-label govuk-radios__label" for="email-provider-3">
+								Yahoo
+							</label>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="govuk-form-group">
+				<label class="govuk-label govuk-label--m" for="email">
+					Email address
+				</label>
+				<details class="govuk-details">
+				<summary class="govuk-details__summary">
+					<span class="govuk-details__summary-text">
+					How do I choose an email address?</span>
+				</summary>
+				<div class="govuk-details__text">
+				<p>Use this format for the email address:</p>
+					<ul class="govuk-list govuk-list--bullet">
+						<li><span class="govuk-body govuk-!-font-weight-bold">forename.surname@provider.com</span></li>
+					</ul>
+					<p>If that address isn't available, try adding their year of birth to the address:</p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li><span class="govuk-body govuk-!-font-weight-bold">forename.surname1980@provider.com</span></li>
+						</ul>
+						<p>If that's not available either, try their date of birth:</p>
+						<ul class="govuk-list govuk-list--bullet">
+							<li><span class="govuk-body govuk-!-font-weight-bold">forename.surname120280@provider.com</span></li>
+						</ul>
+						</div>
+						</details>
+						<input class="govuk-input" id="email" name="email" type="text">
+					</div>
+					<div class="govuk-form-group">
+						<label class="govuk-label govuk-label--m" for="password">
+							Password
+						</label>
+						<details class="govuk-details">
+							<summary class="govuk-details__summary">
+						    <span class="govuk-details__summary-text">How do I choose a temporary password?</span></summary>
 
-		    <div class="govuk-form-group">
-		        <label class="govuk-label govuk-label--m" for="password">
-		            Password
-		        </label>
-		        <input class="govuk-input" id="password" name="password" type="text">
-		    </div>
-		    <input type="hidden" name="has-email" value="true">
-		    <button type="submit" class="govuk-button">Save</button>
-		</form>
-	</div>
-</div>
+						<div class="govuk-details__text"> Use a phrase consisting of three unconnected words. Make sure you remember this until you have completed the field below.</div>
+						</details>
+						<input class="govuk-input" id="password" name="password" type="text">
+					</div>
+					
+					
+					<input type="hidden" name="has-email" value="yes">
+					<button type="submit" class="govuk-button">Confirm</button>
+				</form>
+			</div>
+		</div>
 
 {% endif %}
 {% endblock %}

@@ -11,6 +11,11 @@ let cases = require("../app/data/prisoners.js");
 
 router.all("*", function(req, res, next){
 	res.locals.query = req.query;
+
+	const users = require("../app/data/users.js");
+	if(!req.session.data.user){
+		req.session.data.user = users[0];
+	}
 	next();
 });
 
@@ -31,6 +36,7 @@ router.get("/resettlement-planning", function(req, res, next){
 	next();
 });
 
+
 //gp routes
 
 router.get("/resettlement-planning/:personId/gp", function(req, res, next){
@@ -44,6 +50,8 @@ router.get("/resettlement-planning/:personId/gp", function(req, res, next){
 		next();
 	}
 })
+
+
 
 router.get("/probation/gp", function(req, res, next){
 	
@@ -201,14 +209,15 @@ router.all("/authentication/users", function(req, res, next){
 
 router.post("/authentication/register", function(req, res, next){
 	const users = require("../app/data/users.js");
-	let user = users.filter(user => user.login.username == req.body.username);
-	console.log(user)
+	let user = users.filter(user => user.login.username == req.body.username)[0];
+	console.log(user);
 
 	if(user.length === 0){
 		res.locals.invalidLogin = true;
 		res.render("authentication/register");
 	} else {
-		if(user[0].login.password === req.body.password){
+		if(user.login.password === req.body.password){
+			req.session.data.user = user;
 			res.redirect(`/authentication/register-2`);		
 		} else {
 			res.locals.invalidLogin = true;
