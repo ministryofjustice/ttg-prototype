@@ -16,7 +16,7 @@
         <a class="govuk-breadcrumbs__link" href="#">Her Majesty’s Prison &amp; Probation Service</a>
       </li>
       <li class="govuk-breadcrumbs__list-item">
-        <a class="govuk-breadcrumbs__link">Prisoner services</a>
+        <a class="govuk-breadcrumbs__link">Help leaving prison</a>
       </li>
     </ol>
   </div>
@@ -32,8 +32,12 @@
     <h2 class="govuk-heading-s">Phone</h2>
     <p>{{surgery.phone | safe }}</p>
 
-		<p><a class="govuk-link govuk-link--no-visited-state" href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id={{surgery.id}}" target="_blank">View more on NHS website</a></p>
-      
+		<p><a class="govuk-link govuk-link--no-visited-state" href="https://www.nhs.uk/Services/GP/Overview/DefaultView.aspx?id={{surgery.id}}" target="_blank">View full details [NHS website]</a></p>
+    <div class="govuk-inset-text">
+	<p>To register at this practice, submit a <a href="https://www.nhs.uk/Servicedirectories/Documents/GMS1.pdf">GMS1 form (PDF)</a>.
+	If you weren't given one on release, you can get one at the practice.
+	</p>
+	</div>	
     </div>
 </div>
 {% endblock %}
