@@ -1,18 +1,17 @@
-{% extends "resettlement-planning/layout.html" %}
+{% extends "resettlement-planning/layout-prisoner.html" %}
 
 {% block pageTitle %}
+Housing - {{person.name.first}} {{person.name.last}}
 {% endblock %}
 
 
 
-
-
-{% block content %}
-  
+{% block backlink %}
 <a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
 
-<h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
-<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
+{% block maincontent %}
+  
 
 {% if person.hasAddress %}
 <p>{{person.name.first}} has provided the following address:</p>

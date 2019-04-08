@@ -1,26 +1,24 @@
-{% extends "resettlement-planning/layout.html" %}
+{% extends "resettlement-planning/layout-prisoner.html" %}
 
 {% block pageTitle %}
+Secondary ID - {{person.name.first}} {{person.name.last}}
 {% endblock %}
 
 
 
+{% block backlink %}
+<a href="/resettlement-planning/{{person.index}}/details" class="govuk-back-link">Back</a>
+{% endblock %}
 
-
-{% block content %}
-  
-<a href="/resettlement-planning/{{person.index}}/benefits-checklist" class="govuk-back-link">Back</a>
-
-<h2 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
-<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h2>
+{% block maincontent %}
 
 <form action="secondary-id" method="post" novalidate>
     <div class="govuk-form-group govuk-form-group">
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-        How many items of secondary ID does {{person.name.first}} have?
-      </h1>
+                    How many items of secondary ID does {{person.name.first}} have?
+                  </h1>
             </legend>
             <p>Please see the DWP's <a class="govuk-link govuk-link--no-visited-state" href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/704327/acceptable-id-checklist.pdf">list of acceptable ID</a>.</p>
             <div class="govuk-radios" data-module="radios">
