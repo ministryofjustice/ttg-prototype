@@ -35,11 +35,43 @@ Housing - {{person.name.first}} {{person.name.last}}
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-        <h1 class="govuk-fieldset__heading">
-          Will {{person.name.first}} have accomodation when they leave?
-        </h1>
-      </legend>
-      <div class="govuk-radios">
+        <p class="govuk-body-l">Release address (from BCS2 dated 1 August 2017):</p>
+          <!--Will {{person.name.first}} have accomodation when they leave?-->
+        </h>
+		 
+		 
+		 <h1 class="govuk-heading-l">
+		{{person.address.street}} <br>
+		{{person.address.city}} <br>
+		{{person.address.postcode}}
+		</h2>			
+	<h2 class="govuk-heading-m">Is this address correct?
+        </h1>	
+     </legend>
+	    
+	
+            <div class="govuk-radios govuk-radios--inline" data-module="radios">
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="has-work-1" name="has-work" type="radio" value="yes" data-aria-controls="conditional-has-work-1">
+                    <label class="govuk-label govuk-radios__label" for="has-work-1">
+                        Yes
+                    </label>
+                </div>
+                <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="has-work-2" name="has-work" type="radio" value="no" data-aria-controls="conditional-has-work-2">
+                    <label class="govuk-label govuk-radios__label" for="has-work-2">
+                        No
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+	<div class="govuk-inset-text">We’ll use it for ‘Help leaving prison’ services, such as finding nearby job centres and GP practices	</div>
+    <button type="submit" class="govuk-button">
+        Continue
+    </button>
+</form>
+      <!--<div class="govuk-radios">
         <div class="govuk-radios__item">
           <input class="govuk-radios__input" id="addressProvided-1" name="address-provided" type="radio" value="probationProvided">
           <label class="govuk-label govuk-radios__label" for="address-provided-1">
@@ -66,7 +98,7 @@ Housing - {{person.name.first}} {{person.name.last}}
   <button type="submit" class="govuk-button">
     Continue
   </button>
-</form>
+</form>-->
 
 {% elseif person.releaseLocation %}
 
