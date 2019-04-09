@@ -15,10 +15,14 @@
 	<div class="govuk-grid-column-two-thirds">
 		<ul class="app-task-list__items">
 			<li class="app-task-list__item">
-				<a class="app-task-list__task-name govuk-link--no-visited-state" href="housing">	Housing
+				<a class="app-task-list__task-name govuk-link--no-visited-state" href="address">	Release address
 				</a>
-				{% if person.hasAddress %}
+				{% if person.addressConfirmed %}
 				<strong class="govuk-tag app-task-list__task-completed" id="housing-completed">Completed</strong>
+				{% endif %}
+
+				{% if person.releaseLocation %}
+				<strong class="govuk-tag govuk-tag--warning app-task-list__task-completed">No Address</strong>
 				{% endif %}
 			</li>
 

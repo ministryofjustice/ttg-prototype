@@ -130,6 +130,14 @@ router.post("/resettlement-planning/:personId/housing", function(req, res, next)
 	next();
 })
 
+router.post("/resettlement-planning/:personId/address", function(req, res, next){
+	let person = cases.filter(person => person.index == req.params.personId)[0];
+	person.hasAddress = true;
+	person.addressConfirmed = true;
+	res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	
+})
+
 router.post("/resettlement-planning/:personId/housing-2", function(req, res, next){
 	res.locals.person.addressProvided = req.body["address-provided"];
 	next()
@@ -147,6 +155,8 @@ router.post("/resettlement-planning/:personId/housing-post", function(req, res, 
 	let person = cases.filter(person => person.index == req.params.personId)[0];
 	
 	person.hasAddress = true;
+	person.addressConfirmed = true;
+	person.addressProvidedOn = new Date();
 
 	person.address.street = req.body["address-street"];
 	person.address.city = req.body["address-town"];

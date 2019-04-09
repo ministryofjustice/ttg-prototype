@@ -29,6 +29,8 @@
   "releaseDate": "2019-04-19T08:58:52Z",
   "onLicence": true,
   "hasAddress": true,
+  "addressProvidedOn": "2017-08-25T23:16:54Z",
+  "addressSource": "NOMIS",
   "dateOfBirth": "1959-07-12T17:38:14Z"
 }, {
   "index": 3,
@@ -45,6 +47,8 @@
   "releaseDate": "2019-03-01T11:43:32Z",
   "onLicence": true,
   "hasAddress": true,
+  "addressProvidedOn": "2011-03-09T23:16:54Z",
+  "addressSource": "NOMIS",
   "dateOfBirth": "1969-03-31T15:49:47Z"
 }, {
   "index": 4,
@@ -93,6 +97,8 @@
   "releaseDate": "2019-03-10T01:15:23Z",
   "onLicence": false,
   "hasAddress": true,
+  "addressProvidedOn": "2016-02-23T23:16:54Z",
+  "addressSource": "NOMIS",
   "dateOfBirth": "1974-03-18T17:53:18Z"
 }, {
   "index": 7,
@@ -141,6 +147,8 @@
   "releaseDate": "2019-03-07T21:01:32Z",
   "onLicence": true,
   "hasAddress": true,
+  "addressProvidedOn": "2010-06-17T23:16:54Z",
+  "addressSource": "NOMIS",
   "dateOfBirth": "1995-11-17T02:15:08Z"
 }, {
   "index": 10,

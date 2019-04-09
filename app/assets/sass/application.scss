@@ -75,3 +75,8 @@ details > summary {
 	display: inline-block;
 	margin-right: govuk-spacing(1);
 }
+
+
+.govuk-tag--warning {
+	background-color: govuk-colour("bright-red") ;
+}
