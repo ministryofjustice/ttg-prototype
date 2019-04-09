@@ -49,9 +49,16 @@ Print GP form - {{person.name.first}} {{person.name.last}}
             <span class="ttg-print__link-description">Print registration form</span></a>
             {% endif %}
         </p>
+		<div class="govuk-warning-text">
+		<span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+		<strong class="govuk-warning-text__text">
+		<span class="govuk-warning-text__assistive">Warning</span>
+			Get the printed form signed by {{person.name.first}}, then send to the GP.
+		</strong>
+		</div>
         <div>
         <a href="#" class="govuk-button govuk-button--secondary">Choose a different GP</a></div>
-    </div>
+		</div>
 
 </div>
 {% endblock %}
