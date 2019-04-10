@@ -11,9 +11,7 @@ Email - {{person.name.first}} {{person.name.last}}
 {% endblock %}
 
 {% block maincontent %}
-<a href="/resettlement-planning/{{person.index}}/benefits-checklist" class="govuk-back-link">Back</a>
-<h1 class="govuk-heading-l">{{person.name.first}} {{person.name.last}}
-<span class="govuk-caption-l">Release date: {{person.releaseDate | formatDate("D MMMM YYYY")}}</span></h1>
+
 <form action="/resettlement-planning/{{person.index}}/email-2" method="post" novalidate>
     <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">

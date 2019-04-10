@@ -132,9 +132,15 @@ router.post("/resettlement-planning/:personId/housing", function(req, res, next)
 
 router.post("/resettlement-planning/:personId/address", function(req, res, next){
 	let person = cases.filter(person => person.index == req.params.personId)[0];
-	person.hasAddress = true;
-	person.addressConfirmed = true;
-	res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	if(req.body['address-confirmed'] === "yes"){
+		person.hasAddress = true;
+		person.addressConfirmed = true;
+		res.redirect(`/resettlement-planning/${req.params.personId}/details`)
+	} else if(req.body['address-confirmed'] === "no"){
+		person.hasAddress = false;
+		next();
+	}
+	next();
 	
 })
 
