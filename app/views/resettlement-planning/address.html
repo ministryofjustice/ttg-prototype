@@ -15,7 +15,7 @@ Release address - {{person.name.first}} {{person.name.last}}
 {% if person.hasAddress %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-m">Latest address</h1>
+      <h1 class="govuk-heading-m">Latest address information</h1>
       <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -29,7 +29,7 @@ Release address - {{person.name.first}} {{person.name.last}}
           </div>
           <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                  Date provided
+                  NOMIS entry
               </dt>
               <dd class="govuk-summary-list__value">
                   {{person.addressProvidedOn | formatDate('D MMMM YYYY')}}
@@ -51,7 +51,7 @@ Release address - {{person.name.first}} {{person.name.last}}
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
         <h1 class="govuk-fieldset__heading">
-          Is this address {{person.name.first}} will be released to?
+          Is this where {{person.name.first}} will be living?
         </h1>
       </legend>
       <div class="govuk-radios govuk-radios--inline">
@@ -84,7 +84,7 @@ Release address - {{person.name.first}} {{person.name.last}}
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h1 class="govuk-fieldset__heading">
-          Will {{person.name.first}} have accomodation when they leave?
+          Will {{person.name.first}} have accommodation when they leave?
         </h1>
       </legend>
       <div class="govuk-radios">
