@@ -16,13 +16,13 @@ Benefits - {{person.name.first}} {{person.name.last}}
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-		<p>{{person.name.first}} will be released to {{person.address.city}} Which is in a Universal Credit area. To make a claim, they will need:</p>
+		<p>{{person.name.first}} will be released to {{person.address.city}} which is in a Universal Credit area. To make a claim, they will need:</p>
 
 		<ul class="app-task-list__items">
 			
 			<li class="app-task-list__item">
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="primary-id">
-					Primary Identification
+					Primary identification
 				</a>
 				{% if person.primaryIdComplete %}
 				<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
@@ -30,7 +30,7 @@ Benefits - {{person.name.first}} {{person.name.last}}
 			</li>
 			<li class="app-task-list__item">
 				<a class="app-task-list__task-name govuk-link--no-visited-state" href="secondary-id">
-					Secondary Identification
+					Secondary identification
 				</a>
 				{% if person.secondaryIdComplete %}
 				<strong class="govuk-tag app-task-list__task-completed">Completed</strong>
