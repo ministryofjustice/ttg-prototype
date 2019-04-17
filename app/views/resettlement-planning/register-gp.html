@@ -14,7 +14,7 @@ Register GP - {{person.name.first}} {{person.name.last}}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <div class="govuk-inset-text">
-            The following details will be entered on the GP registration (GMS1). This must be printed and signed by {{person.name.first}} and sent to the GP.
+            A GP registration form (GMS1) will be pre-filled with the details below. 
         </div>
         <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
@@ -98,7 +98,7 @@ Register GP - {{person.name.first}} {{person.name.last}}
         </dl>
         <form action="/resettlement-planning/{{person.index}}/gp-form-print" method="post">
             <input type="hidden" name="gpid" value="{{surgery.id}}">
-            <button class="govuk-button" title="">Register at this GP</button></form>
+            <button class="govuk-button" title="">Continue</button></form>
     </div>
 </div>
 {% endblock %}
