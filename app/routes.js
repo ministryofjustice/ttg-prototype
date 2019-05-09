@@ -8,7 +8,9 @@ const fs = require('fs');
 // Add your routes here - above the module.exports line
 
 let cases; 
-	
+
+
+//to generate a new set of data, upload /app/data/prisoners.schema.json to mockaroo.com	
 let getCases = function(){
 	fs.readFile(__basedir + "/app/data/prisoners.json", function(err, data){
 		if (err) throw err;
